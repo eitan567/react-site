@@ -1,38 +1,295 @@
-.App {
-  text-align: center;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 600;
+  color: #1e7992;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+}
+
+.text-main-color {
+  color: #296e8b;
+}
+
+.text-bgmain-color {
+  background-color: #296e8b;
+}
+
+header {
+  background: #ffffff;
+  /* padding: 10px 0; */
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 12px 45px;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #515151;
+  font-weight: bolder;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.hero-img {
+  width: 100%;
+  height: 600px; /* Adjust based on actual image */
+  object-fit: cover;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content {
+  padding: 40px 20px;
+  background: #fff;
+}
+
+.content h2 {
+  text-align: center;
+  font-size: 2em;
+  color: #333;
+}
+
+.content p {
+  text-align: center;
+  font-size: 1.2em;
+  color: #666;
+}
+
+.content-img {
+  display: block;
+  margin: 0 auto 20px;
+  width: 80%;
+  height: auto;
+  max-width: 600px; /* Adjust based on actual image */
+}
+
+.form-section {
+  background: #f4f4f4;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.form-section h3 {
+  font-size: 1.8em;
+  color: #333;
+}
+
+form {
+  direction: ltr;
+  background-color: #8099a33b;
+  /* background-size: cover;
+  background-position: center; 
+  style={{backgroundImage: `url(${backgroundSvg})`}}*/
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+form input {
+  display: block;
+  width: 80%;
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #296e8b;
+  border-radius: 4px;
+}
+
+form input:focus {
+  border-color: #296e8b; /* Change this to your desired focus border color */
+  outline: none; /* Remove the default focus outline */
+}
+
+form button {
+  background: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #555;
+}
+
+.investment-options {
+  padding: 40px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+.investment-options h3 {
+  font-size: 1.8em;
+  color: #333;
+}
+
+.investment-options ul {
+  list-style: none;
+  padding: 0;
+}
+
+.investment-options li {
+  margin: 20px 0;
+}
+
+.investment-options input[type="radio"] {
+  margin-right: 10px;
+}
+
+.investment-options button {
+  background: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.investment-options button:hover {
+  background: #555;
+}
+
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer form {
+  margin: 20px 0;
+}
+
+.gradient-text {
+  /* Fallback: Set a background color. */
+  background-color: red;
+  
+  /* Create the gradient. */
+  background-image: linear-gradient(45deg, #f3ec78, #af4261);
+  
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.gradient-text-2 {
+  background: #216b91;
+  /* background: linear-gradient(to right, #c5bb08 46%, #206a92 100%); */
+  background: linear-gradient(to right, #c32978 46%, #206a92 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-bk-2 {
+  background: #216b91;
+  background: linear-gradient(to right, #c5bb08 10%, #206a92 100%);
+}
+
+main {
+  flex: 1;
+}
+
+
+.flat-image{
+  margin: 0 auto;
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+button{
+  background: rgb(108,13,214) !important;
+  background: linear-gradient(45deg, #c32978 0%, #206a92 100%) !important;
+}
+
+/* button {
+  background: 
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(60deg, #c32978, #206a92) border-box;
+  color: #313149 !important;
+  padding: 20px 70px;
+  border: 5px solid transparent;
+  border-radius: 40px;
+  display: inline-block;
+  font-size: 28px;
+} */
+
+.icons-section img {
+  width: 50px; /* Adjust based on actual icon size */
+  height: 50px; /* Adjust based on actual icon size */
+  margin-bottom: 10px;
+}
+
+.icons-section p {
+  margin-bottom: 10px;
+}
+
+.icons-section .text-lg {
+  font-size: 1.25rem; /* Tailwind text-lg size */
+}
+
+.pulse-logo{
+  position: absolute;
+  width: 263px;
+  right: -8px;
+  top: 0px;
+  z-index: -200;
+}
+
+.svgStyle{
+  background-size: cover;
+  background-position: center center;  
+  width: 57px;
+  height: 57px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 6px;
+  margin-left: 11px;
+}
+
+.text-after-svg{
+  display: inline-block;
+  vertical-align: text-top;
 }

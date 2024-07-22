@@ -1,0 +1,230 @@
+import React from 'react';
+// import HomeTopImg from '../assets/bk5.png'
+import HomeMiddleImg from '../assets/bk2.png'
+import HomeBottomImg from '../assets/bk7.png'
+import Back1 from '../assets/bkandlogo.png'
+import AboutSVG from '../assets/aboutTheStock.svg';
+import VisionSVG from '../assets/vision.svg';
+import TeamSVG from '../assets/team.svg';
+import TargetSVG from '../assets/target.svg';
+import { Assessment, FavoriteBorder, TrendingUp } from '@mui/icons-material';
+// import backgroundSvg from '../assets/background.svg';
+
+// Custom Alert component
+// const Alert = ({ children }) => (
+//   <div className="bg-yellow-100 border-r-4 border-yellow-500 text-yellow-700 p-4" role="alert">
+//     {children}
+//   </div>
+// );
+
+const Hero = () => (
+  <section className="relative h-[32rem]">
+    <img src={Back1} alt="Stock market charts" className="w-full h-full object-cover" />    
+  </section>
+);
+
+const data = [
+  {
+    svg: AboutSVG,
+    title: 'אודות המודל',
+    description: 'מתמחים בהשקעה בחוזים עתידיים וניירות ערך סחירים בארה"ב לטווח קצר-בינוני-ארוך.'
+  },
+  {
+    svg: VisionSVG,
+    title: 'הפיתוחים שלנו',
+    description: 'פיתחנו עשרות רובוטים מוצלחים שמתאימים למגוון רחב של סוגי השקעה מסולידי ושמרי ועד לאגרסיבי יותר.'
+  },
+  {
+    svg: TargetSVG,
+    title: 'אסטרטגיות המסחר שלנו',
+    description: 'אסטרטגיות המסחר שלנו מאפשרת להשיג תשואות גבוהות, בתנודתיות ובסיכון נמוכים ביחס להשקעות המקובלות.'
+  },
+  {
+    svg: TeamSVG,
+    title: 'הצוות - יש להשלים נתונים אמיתיים',
+    description: 'יוצאי מקצועיות ומנהלי תיקים בארץ ובחו"ל של אגפים של המוסדים הגדולים בישראל שרצו להקים קרן גידור עצמאית לטובת הלקוחות ובני המשפחה. מנהלי הקרן משקיעים את כספם האישי בקרן, מתוך אמונה במודל ובאסטרטגיית ההשקעה.'
+  }
+];
+
+const AboutSection = () => (
+  <section className="p-6 max-w-6xl mx-auto text-right">
+    <h1 className="text-6xl font-black pb-6 gradient-text-2">
+    מסחר אלגוריתמי המבוסס על מודל ייחודי ומתאים לכל מצבי השוק
+    </h1>
+    {data.map((item, index) => (
+        <div key={index} style={{marginBottom:'15px'}}>
+          <div className='svgStyle' style={{backgroundImage: `url(${item.svg})` }}></div>
+          <div className='text-after-svg'>
+            <h2 className="text-2xl font-black mb-2 text-main-color">{item.title}</h2>
+            <p style={{maxWidth:'900px'}}>{item.description}</p>
+          </div>
+        </div>
+      ))}    
+  </section>
+);
+
+const StrategySection = () => (
+  <section className="p-8 max-w-6xl mx-auto bg-gray-100 text-right">
+    <h2 className="text-main-color text-6xl font-black pb-2 gradient-text-2">אסטרטגיית המסחר שלנו</h2>
+    <h1 className="text-2xl font-black pb-2 text-main-color">
+    הקדמה
+    </h1>
+    <p className="mb-4">
+    אסטרטגיות המסחר שלנו מאפשרת להשיג תשואות גבוהות, בתנודתיות ובסיכון נמוכים ביחס להשקעות המקובלות. 
+    </p>    
+
+    <h1 className="text-2xl font-black pb-2 text-main-color">מסחר אלגוריתמי זה העתיד</h1>
+    <p className="mb-4">כבר היום ברוב בורסות העולם יותר מ-80% מכלל הפעולות ועסקאות מבוצעות על ידי רובוטי מסחר. אופן המסחר כל הזמן משתכלל ונהיה מהיר ומתוחכם יותר. כבר היום לסוחרים מסורתיים קשה מאוד להתחרות עם ביצועים של רובוטים.
+</p>
+<h1 className="text-2xl font-black pb-2 text-main-color">מהירות ויעילות</h1>
+<p className="mb-4">מסחר אלגוריתמי מאפשר ביצוע מהיר יותר של עסקאות ופעולות מכיוון שהביצוע הינו אוטומטי על סמך כללים מוגדרים מראש. הרובוט מחשב סיכונים ומבצע פעולות הרבה יותר מהר מאדם, כי ניתוח שוק מתרחש באופן רציף בתדירות קבועה.
+</p>
+<h1 className="text-2xl font-black pb-2 text-main-color">נטרול רגשות מהחלטות במסחר</h1>
+<p className="mb-4">לרובוט אין רגשות ואינו מהסס בקבלת החלטות, משחרר את הסוחר מעבודה אנליטית ומעומס רגשי. החלטות רגשיות יכולות לעתים קרובות להוביל לתוצאות מסחר גרועות.
+</p>
+ <h1 className="text-2xl font-black pb-2 text-main-color">בדיקה לאחור בזמן פיתוח</h1>
+ <p className="mb-4">מערכות מסחר של אלגו ניתנות לבדיקה לאחור באמצעות נתונים היסטוריים. זה מאפשר לחדד את האסטרטגיה, לזהות פגמים פוטנציאליים לפני הפעלתם במסחר בזמן אמת ולהעריך את הביצועים של האסטרטגיה ויחס סיכוי מול סיכון. 
+</p>
+<h1 className="text-2xl font-black pb-2 text-main-color">תשואה עודפת</h1>
+<p className="mb-4">מסחרת אלגוריתמי מאפשר להשיג תשואה עודפת ביחס למסחר ידני מכיוון שרובוט מסוגל לעבוד סביב השעון ללא מנוחה ושעות שינה ולא יפספס אף עסקה אטרקטיבית.
+</p>
+  </section>
+);
+
+const WhySection = () => (
+  <section className="p-8 max-w-6xl mx-auto bg-gray-100 text-right">
+    <h2 className="text-gray-700 text-6xl font-black pb-2 gradient-text-2">למה להשקיע עם AlgoPolo?</h2>    
+  </section>
+); 
+
+const IconsSection = () => (
+  <section className="p-8 max-w-6xl mx-auto text-center">
+    <div className="flex justify-around">
+      <div className="text-center max-w-64">
+        <TrendingUp fontSize="inherit" className="text-main-color mb-4"  style={{fontSize:'105px'}}/>
+        <p className="text-lg font-bold">מודל שמתאים לשינויים בשוק</p>
+        <p>המודל מגיב לשינויים בשוק בצורה טובה (דוגמת משבר הקורונה)</p>
+      </div>
+      <div className="text-center max-w-64">
+        <Assessment fontSize="inherit" className="text-main-color mb-4"  style={{fontSize:'105px'}}/>
+        <p className="text-lg font-bold">ביצועים מוכחים</p>
+        <p>מודל שמתאים לניהול סיכונים ועובדת על השוק ב-5 שנים האחרונות</p>
+      </div>
+      <div className="text-center max-w-64">
+        <FavoriteBorder fontSize="inherit" className="text-main-color mb-4" style={{fontSize:'105px'}}/>
+        <p className="text-lg font-bold">ניהול תיק אישי</p>
+        <p>המודל מותאם אישית לצרכי הלקוח</p>
+      </div>
+    </div>
+  </section>
+);
+
+const WhyForm = () => (
+  <form>
+    <h2 className="text-2xl font-bold mb-4 text-center">על מנת לצפות בתשואות הקרן דרך האתר, יש להיות מוגדר כמשקיע כשיר</h2>
+    <div className="flex flex-row-reverse space-x-reverse space-x-4">
+      <input type="text" placeholder="שם" className="flex-1 p-2 border rounded text-right" />
+      <input type="tel" placeholder="טלפון" className="flex-1 p-2 border rounded text-right" />
+      <input type="email" placeholder="אימייל" className="flex-1 p-2 border rounded text-right" />
+    </div>
+    <div className="space-y-2" style={{direction: 'ltr'}}>
+      <label className="flex flex-row-reverse mb-4">
+        <input type="checkbox" style={{margin: "6px",width:"15px",marginRight:"0px"}}/>
+        <span className="mr-2">אני מצהיר שאני משקיע כשיר</span>
+      </label>
+    </div>
+    <div className='flex justify-center w-full'>
+      <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
+    </div>
+  </form>
+);
+
+const InvestmentForm = () => (
+  <form className="mb-8">
+    <h2 className="text-2xl font-bold mb-4 text-center">מעוניינים לשמוע עוד? נשמח ליצור עמכם קשר</h2>
+    <div className="flex flex-row-reverse space-x-reverse space-x-4 mb-4">
+      <input type="text" placeholder="שם" className="flex-1 p-2 border rounded text-right" />
+      <input type="tel" placeholder="טלפון" className="flex-1 p-2 border rounded text-right" />
+      <input type="email" placeholder="אימייל" className="flex-1 p-2 border rounded text-right" />
+    </div>
+    <div className='flex justify-center w-full'>
+      <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
+    </div>
+  </form>
+);
+
+const SecondImage = () => (
+  <div className="relative h-96">
+    <img src={HomeMiddleImg} alt="Investment strategy visualization" className="w-full h-full object-cover" />
+  </div>
+);
+
+const InvestmentOptions = () => (
+  <section className="p-8 max-w-6xl mx-auto bg-gray-100 text-right"  style={{direction: 'rtl'}}>
+    <h2 className="text-2xl font-black mb-4 text-main-color">אנא בחר אחת מהאפשרויות הבאות:</h2>
+    <div className="space-y-2" style={{direction: 'ltr'}}>
+      <label className="flex flex-row-reverse items-center">
+        <input type="checkbox" className="ml-2" />
+        <span className="mr-2">השקעה בדמי ניהול מופחתים וללא דמי הצלחה לתקופה מוגבלת</span>
+      </label>
+      <label className="flex flex-row-reverse items-center">
+        <input type="checkbox" className="ml-2" />
+        <span className="mr-2">גובה ההשקעה בכל אחת מהאופציות האחרות, למעט ש״ח 1,214,317 או עבודה הנכונה לאחר לי שהוא המשפחתי
+        שאלף או משהוא עומד על ש״ח 1,821,475</span>
+      </label>
+      <label className="flex flex-row-reverse items-center">
+        <input type="checkbox" className="ml-2" />
+        <span className="mr-2">השקעה בדמי ניהול מופחתים וללא דמי הצלחה לתקופה מוגבלת בכל אחד מהאופציות האחרות עולה
+        על ש״ח 5,059,653 או משהוא שאלף או משהוא המשפחתי שהוא לאחר עבודה הנכונה לאחר לי על ש״ח 807,158</span>
+      </label>
+      <label className="flex flex-row-reverse items-center">
+        <input type="checkbox" className="ml-2" />
+        <span className="mr-2">תנאי המומלץ כיום, בעל עמלה גבוהה של 50-80 מיליון ש״ח בעמלות מלאה של משקיעים כשירים</span>
+      </label>
+      <label className="flex flex-row-reverse items-center">
+        <input type="checkbox" className="ml-2" />
+        <span className="mr-2">אני משקיע מוסדי</span>
+      </label>
+    </div>
+    <div className='flex justify-center w-full'>
+      <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור והעבר לתשואות</button>
+    </div>
+    {/* <button className="mt-4 text-bgmain-color text-white px-4 py-2 rounded w-full">אישור והעבר לתשואות</button> */}
+  </section>
+);
+
+const ThirdImage = () => (
+  <div>
+    <img src={HomeBottomImg} alt="Fund performance chart" className="flat-image" />
+  </div>
+);
+
+// const QualifiedInvestorNote = () => (
+//   <div className="p-8 max-w-6xl mx-auto text-center">
+//     <p className="text-xl font-bold">על מנת לצפות בתשואות הקרן דרך האתר, יש להיות מוגדר כמשקיע כשיר</p>
+//   </div>
+// );
+
+
+const Home = () => (
+  <div className="font-assistant text-gray-800" dir="rtl">   
+    <Hero />
+    <AboutSection />
+    <InvestmentForm />
+    <SecondImage />
+    <StrategySection />
+    <ThirdImage />
+    <WhySection />
+    <IconsSection />
+    <WhyForm /> 
+    <InvestmentOptions />
+    {/* <QualifiedInvestorNote />     */}
+    {/* <Alert>
+      <p className="text-gray-600 text-sm">
+        השקעות בשוק ההון כרוכות בסיכון. האמור לעיל אינו מהווה המלצה להשקעה או ייעוץ השקעות המותאם לצרכיו האישיים והמיוחדים של כל אדם. אין לראות באמור לעיל משום הבטחת תשואה כלשהי או רווח בעתיד. אלמוגו קפיטל בע"מ הינה חברה לניהול תיקים בעלת רישיון מטעם רשות ני"ע. ט.ל.ח.
+      </p>
+    </Alert> */}
+  </div>
+);
+
+export default Home;
