@@ -20,7 +20,7 @@ import { Assessment, FavoriteBorder, TrendingUp } from '@mui/icons-material';
 // );
 
 const Hero = () => (
-  <section className="relative h-[32rem]">
+  <section className="relative h-auto">
     <div className='animated-svg-style' style={{backgroundImage: `url(${BackSvg})` }}></div>
     <img src={Back1} alt="Stock market charts" className="w-full h-full object-cover" />  
     <div>
