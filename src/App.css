@@ -166,6 +166,14 @@ form button:hover {
   margin-right: 10px;
 }
 
+form input,form textarea,form textarea:focus {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #296e8b;
+  outline:none;
+}
+
+
 .investment-options button {
   background: #333;
   color: white;
@@ -185,6 +193,14 @@ footer {
   text-align: center;
   padding: 20px;
   margin-top: auto;
+}
+
+footer {  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 footer p {
@@ -220,6 +236,7 @@ footer form {
   background: linear-gradient(to right, #c32978 46%, #206a92 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 3em;
 }
 
 .gradient-bk-2 {
@@ -278,14 +295,14 @@ button{
   z-index: -200;
 }
 
-.svgStyle{
+.svgStyle {
   background-size: cover;
-  background-position: center center;  
-  width: 57px;
-  height: 57px;
+  background-position: center center;
+  width: 59px;
+  height: 59px;
   display: inline-block;
   vertical-align: top;
-  margin-top: 6px;
+  margin-top: 3px;
   margin-left: 11px;
 }
 
@@ -302,9 +319,16 @@ button{
   top: -84px;
 }
 
-.text-after-svg{
-  display: inline-block;
-  vertical-align: text-top;
+.text-after-svg{  
+  width:90%;
+}
+
+.headingParagrapghStyle{  
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
 
 textarea{
@@ -312,3 +336,14 @@ textarea{
   margin-right: 28px;
   border-color: #296e8b;
 }
+
+/* header ul {
+  direction: rtl;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+} */

@@ -1,61 +1,61 @@
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-// import Logo from '../assets/logo.png';
 import LogoAlgo from '../assets/logo4.png';
-// import SVGLogo from '../assets/logo.svg';
+import './Header.css';
 
 
-const Header = () => (
-  <header className="bg-white shadow-md">
-    <div className="max-w-6xl mx-auto text-right py-6 px-4">
-      <nav>
-        <ul className="flex justify-end flex-row-reverse space-x-8 text-gray-600 font-black text-xl" style={{ direction: 'rtl',position:"relative" }}>
-          <img src={LogoAlgo} alt="logo" className='pulse-logo'/>
-          {/* <div className="pulse-logo-svg" style={{backgroundSize: "cover",backgroundPosition: "center",backgroundImage: `url(${SVGLogo})`}}/> */}
-          <li>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}
-            >
-              צור קשר
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/about"
-              className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}
-            >
-              אודות
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/returns"
-              className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}
-            >
-              תשואות
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/strategy"
-              className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}
-            >
-              אסטרטגיות
-            </NavLink>
-          </li>
-          <li style={{ paddingRight:"200px"}}>
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}
-            >
-              דף הבית
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-);
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  return (
+    <header className="bg-white shadow-md">
+      <div className="max-w-6xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          {/* <img src={LogoAlgo} alt="logo" className="w-32 sm:w-40 md:w-48" /> */}
+          <button
+            className="sm:hidden text-gray-600"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? '✕' : '☰'}
+          </button>
+          <nav className={`${isMenuOpen ? 'block' : 'hidden'} sm:block`}>
+            <ul className="flex flex-col sm:flex-row-reverse sm:items-center sm:space-x-8 sm:space-x-reverse text-gray-600 font-black text-xl">
+              <li className="mb-2 sm:mb-0">
+                <NavLink to="/contact" className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}>
+                  צור קשר
+                </NavLink>
+              </li>
+              <li className="mb-2 sm:mb-0">
+                <NavLink to="/about" className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}>
+                  אודות
+                </NavLink>
+              </li>
+              <li className="mb-2 sm:mb-0">
+                <NavLink to="/returns" className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}>
+                  תשואות
+                </NavLink>
+              </li>
+              <li className="mb-2 sm:mb-0">
+                <NavLink to="/strategy" className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}>
+                  אסטרטגיות
+                </NavLink>
+              </li>
+              <li className="mb-2 sm:mb-0">
+                <NavLink to="/" end className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}>
+                  דף הבית
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+  );
+};
 
 export default Header;

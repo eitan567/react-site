@@ -21,9 +21,9 @@ import { Assessment, FavoriteBorder, TrendingUp } from '@mui/icons-material';
 
 const Hero = () => (
   <section className="relative h-auto">
-    <div className='animated-svg-style' style={{backgroundImage: `url(${BackSvg})` }}></div>
+    {/* <div className='animated-svg-style' style={{backgroundImage: `url(${BackSvg})` }}></div> */}
     <img src={Back1} alt="Stock market charts" className="w-full h-full object-cover" />  
-    <div>
+    {/* <div>
         <svg className="waves" xmlns="http://www.w3.org/2000/svg" 
         xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
           <defs>
@@ -36,7 +36,7 @@ const Hero = () => (
             <use href="#gentle-wave" x="48" y="7" fill="#fff" />
           </g>
         </svg>
-    </div> 
+    </div>  */}
   </section>
 );
 
@@ -69,11 +69,11 @@ const AboutSection = () => (
     מסחר אלגוריתמי המבוסס על מודל ייחודי ומתאים לכל מצבי השוק
     </h1>
     {data.map((item, index) => (
-        <div key={index} style={{marginBottom:'15px'}}>
+        <div key={index} className='headingParagrapghStyle' style={{marginBottom:'15px'}}>
           <div className='svgStyle' style={{backgroundImage: `url(${item.svg})` }}></div>
           <div className='text-after-svg'>
             <h2 className="text-2xl font-black mb-2 text-main-color">{item.title}</h2>
-            <p style={{maxWidth:'900px'}}>{item.description}</p>
+            <p>{item.description}</p>
           </div>
         </div>
       ))}    

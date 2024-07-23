@@ -3,8 +3,8 @@ import ContactImage from '../assets/bk8.png'; // Assuming you saved the image as
 
 const ContactPage = () => (
     <section className="text-right flex flex-col md:flex-row items-center justify-between mr-[10%]">
-      <form className="w-full w-1/2 p-8 pt-16 bg-white text-right" style={{ direction: 'ltr',height:'65vh',width:'50%',backgroundColor:'white' }}>
-        <h1 className="text-2xl font-black pb-6 gradient-text-2 w-[340px] text-center">נשמח לעמוד לשירותכם בכל שאלה.
+      <form className="w-full w-1/2 p-8 bg-white text-right" style={{ direction: 'ltr',height:'65vh',width:'50%',backgroundColor:'white' }}>
+        <h1 className="text-2xl font-black pb-6 gradient-text-2 w-[340px] text-center" style={{fontSize:'2em'}}>נשמח לעמוד לשירותכם בכל שאלה.
 השאירו פרטים ונחזור אליכם</h1>
         <div className="mb-4" style={{width:'288px'}}>
           <input type="text" placeholder="שם" className="flex-1 p-2 border rounded text-right" />
