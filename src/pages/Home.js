@@ -21,9 +21,9 @@ import { Assessment, FavoriteBorder, TrendingUp } from '@mui/icons-material';
 
 const Hero = () => (
   <section className="relative h-[32rem]">
-    {/* <div className='animated-svg-style' style={{backgroundImage: `url(${BackSvg})` }}></div> */}
+    <div className='animated-svg-style' style={{backgroundImage: `url(${BackSvg})` }}></div>
     <img src={Back1} alt="Stock market charts" className="w-full h-full object-cover" />  
-    {/* <div>
+    <div>
         <svg className="waves" xmlns="http://www.w3.org/2000/svg" 
         xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
           <defs>
@@ -36,7 +36,7 @@ const Hero = () => (
             <use href="#gentle-wave" x="48" y="7" fill="#fff" />
           </g>
         </svg>
-    </div>  */}
+    </div> 
   </section>
 );
 
