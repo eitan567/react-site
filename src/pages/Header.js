@@ -14,15 +14,23 @@ const Header = () => (
           <li>
             <NavLink
               to="/contact"
-              className={({ isActive }) => isActive ? "text-[#9a2ca4]" : "text-gray-600"}
+              className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}
             >
               צור קשר
             </NavLink>
           </li>
           <li>
             <NavLink
+              to="/about"
+              className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}
+            >
+              אודות
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/returns"
-              className={({ isActive }) => isActive ? "text-[#9a2ca4]" : "text-gray-600"}
+              className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}
             >
               תשואות
             </NavLink>
@@ -30,24 +38,16 @@ const Header = () => (
           <li>
             <NavLink
               to="/strategy"
-              className={({ isActive }) => isActive ? "text-[#9a2ca4]" : "text-gray-600"}
+              className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}
             >
               אסטרטגיות
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/about"
-              className={({ isActive }) => isActive ? "text-[#9a2ca4]" : "text-gray-600"}
-            >
-              אודות הקרן
             </NavLink>
           </li>
           <li style={{ paddingRight:"200px"}}>
             <NavLink
               to="/"
               end
-              className={({ isActive }) => isActive ? "text-[#9a2ca4]" : "text-gray-600"}
+              className={({ isActive }) => isActive ? "text-[#425d8d]" : "text-gray-600"}
             >
               דף הבית
             </NavLink>

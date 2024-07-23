@@ -7,6 +7,8 @@ import AboutSVG from '../assets/aboutTheStock.svg';
 import VisionSVG from '../assets/vision.svg';
 import TeamSVG from '../assets/team.svg';
 import TargetSVG from '../assets/target.svg';
+import BackSvg from '../assets/backsvg.svg';
+import '../assets/wave.css'
 import { Assessment, FavoriteBorder, TrendingUp } from '@mui/icons-material';
 // import backgroundSvg from '../assets/background.svg';
 
@@ -19,7 +21,21 @@ import { Assessment, FavoriteBorder, TrendingUp } from '@mui/icons-material';
 
 const Hero = () => (
   <section className="relative h-[32rem]">
-    <img src={Back1} alt="Stock market charts" className="w-full h-full object-cover" />    
+    <div className='animated-svg-style' style={{backgroundImage: `url(${BackSvg})` }}></div>
+    <img src={Back1} alt="Stock market charts" className="w-full h-full object-cover" />  
+    <div>
+        <svg className="waves" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g className="parallax">
+            <use href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+            <use href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+            <use href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+            <use href="#gentle-wave" x="48" y="7" fill="#fff" />
+          </g>
+        </svg>
+    </div> 
   </section>
 );
 
@@ -47,7 +63,7 @@ const data = [
 ];
 
 const AboutSection = () => (
-  <section className="p-6 max-w-6xl mx-auto text-right">
+  <section className="p-6 pt-2 max-w-6xl mx-auto text-right">
     <h1 className="text-6xl font-black pb-6 gradient-text-2">
     מסחר אלגוריתמי המבוסס על מודל ייחודי ומתאים לכל מצבי השוק
     </h1>
@@ -93,7 +109,7 @@ const StrategySection = () => (
 
 const WhySection = () => (
   <section className="p-8 max-w-6xl mx-auto bg-gray-100 text-right">
-    <h2 className="text-gray-700 text-6xl font-black pb-2 gradient-text-2">למה להשקיע עם AlgoPolo?</h2>    
+    <h2 className="text-gray-700 text-6xl font-black pb-2 gradient-text-2">למה להשקיע עם AlgoSol?</h2>    
   </section>
 ); 
 

@@ -9,15 +9,15 @@ const Footer = () => (
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center">
             <PhoneIcon className="w-6 h-6 ml-2" />
-            <span className="font-semibold text-xl">050-6252559</span>
+            <span className="font-semibold text-xl">054-5746165</span>
           </div>
           <div className="flex items-center">
             <EmailIcon className="w-6 h-6 ml-2" />
-            <span className="font-semibold text-xl">office@algopolo-capital.com</span>
+            <span className="font-semibold text-xl">office@algosol.com</span>
           </div>
           <div className="flex items-center">
             <LocationOnIcon className="w-6 h-6 ml-2" />
-            <span className="font-semibold text-xl">כרמלית 9, תל אביב</span>
+            <span className="font-semibold text-xl">המלך דוד 1, אשדוד</span>
           </div>
         </div>
         <p className="text-xs leading-tight mb-4 text-right">
@@ -27,7 +27,7 @@ const Footer = () => (
           המתחייב בזכויות ובסיכונים המיוחדים של כל אדם. פרסום מידע זה אינו מהווה הצעה לציבור להשקיע בשותפות. כל המידע והתכנים באתר זה מוגנים "AS IS" ללא אחריות או ייצוג מכל סוג שהוא.
         </p>
         <div className="flex justify-between items-center" style={{direction: 'rtl'}}>
-          <span>© 2021 כל הזכויות שמורות AlgoPolo</span>
+          <span>© 2021 כל הזכויות שמורות AlgoSol</span>
           <div>
             <a href="#" className="ml-4">הצהרת נגישות</a>
             <a href="#">מדיניות פרטיות</a>

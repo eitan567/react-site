@@ -289,7 +289,26 @@ button{
   margin-left: 11px;
 }
 
+.animated-svg-style{
+  background-size: cover;
+  background-position: center center;  
+  display: inline-block;
+  vertical-align: top;
+  position: absolute;
+  left: 0px;
+  width: 727px;
+  height: 293px;
+  margin: 0;
+  top: -84px;
+}
+
 .text-after-svg{
   display: inline-block;
   vertical-align: text-top;
+}
+
+textarea{
+  width: 230px;
+  margin-right: 28px;
+  border-color: #296e8b;
 }
