@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import ImageTop from '../assets/bkandlogo3.png';
+import ImageTop from '../assets/bkandlogo32.png';
 // import ImageBottom from '../assets/bk9.png';
 
 const AboutPage = () => {
@@ -13,8 +13,8 @@ const AboutPage = () => {
 
   return(
     <div>
-      <div className="relative h-full">
-        <img src={ImageTop} alt="AI" className="w-full h-auto" />
+      <div className="relative h-80 lg:h-auto">
+        <img src={ImageTop} alt="AI" className="w-full h-full object-cover" />
       </div>
       <section className="p-8 max-w-6xl mx-auto text-right">
         <h1 className="text-4xl lg:text-5xl font-black pb-6 gradient-text-2">אודות הקרן</h1>

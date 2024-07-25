@@ -25,8 +25,7 @@ const Header = () => {
             </button>
             <img src={LogoAlgo} alt="logo" className="w-32 sm:w-40 md:w-48" />
           </div>
-          <nav className={`${isMenuOpen ? 'block' : 'hidden'} pt-0 lg:block logo-large-screen`}>
-            <img src={LogoAlgo} alt="logo" className="hidden lg:block mw-32 sm:w-40 md:w-48" />
+          <nav className={`${isMenuOpen ? 'block' : 'hidden'} pt-0 lg:block`}>            
             <ul className="flex flex-col sm:flex-row-reverse sm:items-center sm:space-x-8 space-x-reverse text-gray-600 font-black text-xl">
               <li className="mb-2 sm:mb-0">
                 <NavLink to="/contact" onClick={toggleMenu} className={({ isActive }) => isActive ? "text-[#425d8d] mr-[15px] lg:m-0" : "text-gray-600 mr-[15px] lg:m-0"}>
@@ -57,6 +56,7 @@ const Header = () => {
           </nav>
         </div>
       </div>
+      <img src={LogoAlgo} alt="logo" className="hidden lg:block absolute left-0 top-[12px] mw-32 sm:w-40 md:w-48" />
     </header>
   );
 };
