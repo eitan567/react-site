@@ -289,15 +289,18 @@ const ThirdImage = () => (
 const Home = () => (
   <div className="font-assistant text-gray-800" dir="rtl">   
     <Hero />
+    <WhySection />
+    <IconsSection />
     <AboutSection />
+    <WhyForm />
     {/* <InvestmentForm /> */}
     <SecondImage />
     <StrategySection />
     {/* <ThirdImage /> */}
-    <WhySection />
-    <IconsSection />
+    {/* <WhySection />
+    <IconsSection /> */}
     <WhyForm /> 
-    <InvestmentOptions />
+    {/* <InvestmentOptions /> */}
     {/* <QualifiedInvestorNote />     */}
     {/* <Alert>
       <p className="text-gray-600 text-sm">
