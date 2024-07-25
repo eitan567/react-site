@@ -16,7 +16,7 @@ const ContactPage = () => (
           <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
         </div>
       </form>
-      <div className="hidden lg:block w-[50vw] h-[65vh] md:mb-0">
+      <div className="hidden lg:block w-[50vw] h-[70vh] md:mb-0">
         <img src={ContactImage} alt="Contact" className="object-cover w-[65vw] h-[100%]"/>
       </div>
     </section>
