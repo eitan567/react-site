@@ -12,7 +12,7 @@ const ContactPage = () => (
           <input type="email" placeholder="אימייל" className="flex-1 p-2 border rounded text-right" />
           <textarea placeholder="כיתבו לנו (לא חובה)" rows={3} className="flex-1 p-2 border rounded text-right"></textarea>
         </div>
-        <div className="flex justify-center w-full">
+        <div className="flex justify-center w-full pb-4">
           <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
         </div>
       </form>
