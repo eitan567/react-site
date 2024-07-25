@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 // import HomeTopImg from '../assets/bk5.png'
 import HomeMiddleImg from '../assets/bk2.png'
 import HomeBottomImg from '../assets/bk7.png'
@@ -10,6 +10,8 @@ import TargetSVG from '../assets/target.svg';
 import BackSvg from '../assets/backsvg.svg';
 import '../assets/wave.css'
 import { Assessment, FavoriteBorder, TrendingUp } from '@mui/icons-material';
+import emailjs from '@emailjs/browser';
+
 // import backgroundSvg from '../assets/background.svg';
 
 // Custom Alert component
@@ -23,7 +25,7 @@ const Hero = () => (
   <section className="relative h-80 lg:h-auto">
     <div className='hidden lg:block animated-svg-style' style={{backgroundImage: `url(${BackSvg})`}}></div>
     <img src={Back1} alt="Stock market charts" className="w-full h-full object-cover" />  
-    <div className='hidden lg:block'>
+    {/* <div className='hidden lg:block'>
         <svg className="waves" xmlns="http://www.w3.org/2000/svg" 
         xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
           <defs>
@@ -36,7 +38,7 @@ const Hero = () => (
             <use href="#gentle-wave" x="48" y="7" fill="#fff" />
           </g>
         </svg>
-    </div> 
+    </div>  */}
   </section>
 );
 
@@ -136,39 +138,100 @@ const IconsSection = () => (
   </section>
 );
 
-const WhyForm = () => (
-  <form>
-    <h2 className="text-2xl font-bold mb-4 text-center">על מנת לצפות בתשואות הקרן דרך האתר, יש להיות מוגדר כמשקיע כשיר</h2>
-    <div className="flex flex-row-reverse space-x-reverse space-x-4">
-      <input type="text" placeholder="שם" className="flex-1 p-2 border rounded text-right" />
-      <input type="tel" placeholder="טלפון" className="flex-1 p-2 border rounded text-right" />
-      <input type="email" placeholder="אימייל" className="flex-1 p-2 border rounded text-right" />
-    </div>
-    <div className="space-y-2" style={{direction: 'ltr'}}>
-      <label className="flex flex-row-reverse mb-4">
-        <input type="checkbox" style={{margin: "6px",width:"15px",marginRight:"0px"}}/>
-        <span className="mr-2">אני מצהיר שאני משקיע כשיר</span>
-      </label>
-    </div>
-    <div className='flex justify-center w-full'>
-      <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
-    </div>
-  </form>
-);
+const WhyForm = () => {
 
-const InvestmentForm = () => (
-  <form className="mb-8">
-    <h2 className="text-2xl font-bold mb-4 text-center">מעוניינים לשמוע עוד? נשמח ליצור עמכם קשר</h2>
-    <div className="flex flex-row-reverse space-x-reverse space-x-4 mb-4">
-      <input type="text" placeholder="שם" className="flex-1 p-2 border rounded text-right" />
-      <input type="tel" placeholder="טלפון" className="flex-1 p-2 border rounded text-right" />
-      <input type="email" placeholder="אימייל" className="flex-1 p-2 border rounded text-right" />
-    </div>
-    <div className='flex justify-center w-full'>
-      <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
-    </div>
-  </form>
-);
+  const form = useRef();
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_solomonh', 'template_qualifiedlead', form.current, {
+        publicKey: 'z-eRN9erqlQNhoN1C',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          setIsSubmitted(true);
+          form.current.reset(); 
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
+  if (isSubmitted) {
+    return (
+      <form>
+        <div className="text-center background-main-color px-4 round-lg">
+          <h2 className="text-2xl font-bold mb-4">תודה רבה!</h2>
+          <p>הודעתך נשלחה בהצלחה. ניצור עמך קשר בהקדם.</p>
+        </div>
+      </form>
+    );
+  }
+
+  return (
+    <form ref={form} onSubmit={sendEmail}>
+      <h2 className="text-2xl font-bold mb-4 text-center">על מנת לצפות בתשואות הקרן דרך האתר, יש להיות מוגדר כמשקיע כשיר</h2>
+      <div className="flex flex-row-reverse space-x-reverse space-x-4">
+        <input type='hidden' name='to_me' value='Solomon'/>
+        <input type="text" placeholder="שם" name="lead_name" className="flex-1 p-2 border rounded text-right" />
+        <input type="tel" placeholder="טלפון" name="lead_phone" className="flex-1 p-2 border rounded text-right" />
+        <input type="email" placeholder="אימייל" name="lead_email" className="flex-1 p-2 border rounded text-right" />
+      </div>
+      <div className="space-y-2" style={{direction: 'ltr'}}>
+        <label className="flex flex-row-reverse mb-4">
+          <input type="checkbox" style={{margin: "6px",width:"15px",marginRight:"0px"}} name="lead_agree" />
+          <span className="mr-2">אני מצהיר שאני משקיע כשיר</span>
+        </label>
+      </div>
+      <div className='flex justify-center w-full'>
+        <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
+      </div>
+    </form>
+  );
+};
+
+// const InvestmentForm = () =>  {
+
+//   const form = useRef();
+
+//   const sendEmail = (e) => {
+//     e.preventDefault();
+
+//     emailjs
+//       .sendForm('service_solomonh', 'template_qualifiedlead', form.current, {
+//         publicKey: 'z-eRN9erqlQNhoN1C',
+//       })
+//       .then(
+//         () => {
+//           console.log('SUCCESS!');
+//         },
+//         (error) => {
+//           console.log('FAILED...', error.text);
+//         },
+//       );
+//   };
+
+//   return (
+//     <form className="mb-8"  ref={form} onSubmit={sendEmail}>
+//       <h2 className="text-2xl font-bold mb-4 text-center">מעוניינים לשמוע עוד? נשמח ליצור עמכם קשר</h2>
+//       <div className="flex flex-row-reverse space-x-reverse space-x-4 mb-4">
+//         <input type='hidden' name='to_me' value='Solomon'/>
+//         <input type="hidden" name="lead_agree" value='not recieved fron the lead yet'/>
+//         <input type="text" placeholder="שם" name="lead_name" className="flex-1 p-2 border rounded text-right" />
+//         <input type="tel" placeholder="טלפון" name="lead_phone" className="flex-1 p-2 border rounded text-right" />
+//         <input type="email" placeholder="אימייל" name="lead_email" className="flex-1 p-2 border rounded text-right" />
+//       </div>
+//       <div className='flex justify-center w-full'>
+//         <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
+//       </div>
+//     </form>
+//   );
+// };
 
 const SecondImage = () => (
   <div className="relative h-96">
@@ -227,7 +290,7 @@ const Home = () => (
   <div className="font-assistant text-gray-800" dir="rtl">   
     <Hero />
     <AboutSection />
-    <InvestmentForm />
+    {/* <InvestmentForm /> */}
     <SecondImage />
     <StrategySection />
     <ThirdImage />
