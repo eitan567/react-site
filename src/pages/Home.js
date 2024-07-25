@@ -29,7 +29,7 @@ const Hero = () => {
       behavior: 'smooth'
     });  
   }, []);
-  
+
   return(
       <section className="relative h-80 lg:h-auto">
         <div className='hidden lg:block animated-svg-style' style={{backgroundImage: `url(${BackSvg})`}}></div>
@@ -121,7 +121,7 @@ const StrategySection = () => (
 );
 
 const WhySection = () => (
-  <section className="p-6 pt-2 pb-2 max-w-6xl mx-auto bg-gray-100 text-right">
+  <section className="p-6 pt-2 pb-2 max-w-6xl mx-auto text-right">
     <h2 className="text-4xl lg:text-5xl font-black pb-0 gradient-text-2 lg:h-[1.1em]">למה להשקיע עם AlgoSol?</h2>    
   </section>
 ); 
