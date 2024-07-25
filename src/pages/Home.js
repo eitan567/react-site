@@ -164,7 +164,7 @@ const WhyForm = () => {
 
   if (isSubmitted) {
     return (
-      <form>
+      <form style={{direction:'rtl'}}>
         <div className="text-center background-main-color px-4 round-lg">
           <h2 className="text-2xl font-bold mb-4">תודה רבה!</h2>
           <p>הודעתך נשלחה בהצלחה. ניצור עמך קשר בהקדם.</p>
