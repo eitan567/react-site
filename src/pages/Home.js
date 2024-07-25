@@ -127,7 +127,7 @@ const WhySection = () => (
 ); 
 
 const IconsSection = () => (
-  <section className="p-11 max-w-6xl mx-auto text-center">
+  <section className="p-8 px-6 max-w-6xl mx-auto text-center">
     <div className="flex justify-between">
       <div className="text-center max-w-64 w-[33%] lg:w-auto">
         <TrendingUp fontSize="inherit" className="text-main-color mb-4"  style={{fontSize:'105px'}}/>

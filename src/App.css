@@ -345,3 +345,12 @@ textarea{
   justify-content: center;
   flex-direction: row-reverse;
 } */
+
+.logo-large-screen{
+    display: flex !important;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 26em;
+}
