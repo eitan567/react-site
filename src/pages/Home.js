@@ -111,8 +111,8 @@ const StrategySection = () => (
 );
 
 const WhySection = () => (
-  <section className="p-6 pt-2 max-w-6xl mx-auto bg-gray-100 text-right">
-    <h2 className="text-4xl lg:text-5xl font-black pb-6 gradient-text-2">למה להשקיע עם AlgoSol?</h2>    
+  <section className="p-6 pt-2 pb-2 max-w-6xl mx-auto bg-gray-100 text-right">
+    <h2 className="text-4xl lg:text-5xl font-black pb-0 gradient-text-2">למה להשקיע עם AlgoSol?</h2>    
   </section>
 ); 
 
@@ -164,7 +164,7 @@ const WhyForm = () => {
 
   if (isSubmitted) {
     return (
-      <form style={{direction:'rtl'}}>
+      <form className='my-10' style={{direction:'rtl'}}>
         <div className="text-center background-main-color px-4 round-lg">
           <h2 className="text-2xl font-bold mb-4">תודה רבה!</h2>
           <p>הודעתך נשלחה בהצלחה. ניצור עמך קשר בהקדם.</p>
@@ -174,7 +174,7 @@ const WhyForm = () => {
   }
 
   return (
-    <form ref={form} onSubmit={sendEmail}>
+    <form ref={form} onSubmit={sendEmail} className='my-10' >
       <h2 className="text-2xl font-bold mb-4 text-center">על מנת לצפות בתשואות הקרן דרך האתר, יש להיות מוגדר כמשקיע כשיר</h2>
       <div className="flex flex-row-reverse space-x-reverse space-x-4">
         <input type='hidden' name='to_me' value='Solomon'/>
@@ -185,7 +185,7 @@ const WhyForm = () => {
       <div className="space-y-2" style={{direction: 'ltr'}}>
         <label className="flex flex-row-reverse mb-4">
           <input type="checkbox" style={{margin: "6px",width:"15px",marginRight:"0px"}} name="lead_agree" />
-          <span className="mr-2">אני מצהיר שאני משקיע כשיר</span>
+          <span className="mr-2">אני מצהיר שאני משקיע מוסדי או כשיר</span>
         </label>
       </div>
       <div className='flex justify-center w-full'>
