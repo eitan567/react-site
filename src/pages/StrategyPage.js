@@ -7,7 +7,7 @@ const StrategyPage = () => (
         <img src={StrategyImage} alt="AI" className="w-full h-auto" />
       </div>
       <section className="p-8 max-w-6xl mx-auto text-right">
-        <h1 className="text-6xl font-black pb-6 gradient-text-2">אסטרטגיית המסחר שלנו</h1>
+        <h1 className="text-4xl lg:text-5xl font-black pb-6 gradient-text-2">אסטרטגיית המסחר שלנו</h1>
         <h1 className="text-2xl font-black pb-2 text-main-color">מסחר אלגוריתמי זה העתיד</h1>
         <p className="mb-4">כבר היום ברוב בורסות העולם יותר מ-80% מכלל הפעולות ועסקאות מבוצעות על ידי רובוטי מסחר. אופן המסחר כל הזמן משתכלל ונהיה מהיר ומתוחכם יותר. כבר היום לסוחרים מסורתיים קשה מאוד להתחרות עם ביצועים של רובוטים.
         </p>

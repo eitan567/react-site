@@ -236,7 +236,6 @@ footer form {
   background: linear-gradient(to right, #c32978 46%, #206a92 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 3em;
 }
 
 .gradient-bk-2 {
@@ -298,8 +297,8 @@ button{
 .svgStyle {
   background-size: cover;
   background-position: center center;
-  width: 59px;
-  height: 59px;
+  width: 66px;
+  height: 63px;
   display: inline-block;
   vertical-align: top;
   margin-top: 3px;
@@ -308,8 +307,7 @@ button{
 
 .animated-svg-style{
   background-size: cover;
-  background-position: center center;  
-  display: inline-block;
+  background-position: center center; 
   vertical-align: top;
   position: absolute;
   left: 0px;

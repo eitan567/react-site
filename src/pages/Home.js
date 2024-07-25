@@ -2,7 +2,7 @@ import React from 'react';
 // import HomeTopImg from '../assets/bk5.png'
 import HomeMiddleImg from '../assets/bk2.png'
 import HomeBottomImg from '../assets/bk7.png'
-import Back1 from '../assets/bkandlogo.png'
+import Back1 from '../assets/bkandlogo5.png'
 import AboutSVG from '../assets/aboutTheStock.svg';
 import VisionSVG from '../assets/vision.svg';
 import TeamSVG from '../assets/team.svg';
@@ -20,10 +20,10 @@ import { Assessment, FavoriteBorder, TrendingUp } from '@mui/icons-material';
 // );
 
 const Hero = () => (
-  <section className="relative h-auto">
-    {/* <div className='animated-svg-style' style={{backgroundImage: `url(${BackSvg})` }}></div> */}
+  <section className="relative h-80 lg:h-auto">
+    <div className='hidden lg:block animated-svg-style' style={{backgroundImage: `url(${BackSvg})`}}></div>
     <img src={Back1} alt="Stock market charts" className="w-full h-full object-cover" />  
-    {/* <div>
+    <div className='hidden lg:block'>
         <svg className="waves" xmlns="http://www.w3.org/2000/svg" 
         xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
           <defs>
@@ -36,7 +36,7 @@ const Hero = () => (
             <use href="#gentle-wave" x="48" y="7" fill="#fff" />
           </g>
         </svg>
-    </div>  */}
+    </div> 
   </section>
 );
 
@@ -65,12 +65,12 @@ const data = [
 
 const AboutSection = () => (
   <section className="p-6 pt-2 max-w-6xl mx-auto text-right">
-    <h1 className="text-6xl font-black pb-6 gradient-text-2">
-    מסחר אלגוריתמי המבוסס על מודל ייחודי ומתאים לכל מצבי השוק
+    <h1 className="text-4xl lg:text-5xl font-black pb-6 gradient-text-2">
+    מסחר אלגוריתמי המבוסס על מודל ייחודי
     </h1>
     {data.map((item, index) => (
         <div key={index} className='headingParagrapghStyle' style={{marginBottom:'15px'}}>
-          <div className='svgStyle' style={{backgroundImage: `url(${item.svg})` }}></div>
+          <div className='svgStyle lg:w-[59px] lg:h-[59px]' style={{backgroundImage: `url(${item.svg})`}}></div>
           <div className='text-after-svg'>
             <h2 className="text-2xl font-black mb-2 text-main-color">{item.title}</h2>
             <p>{item.description}</p>
@@ -82,10 +82,10 @@ const AboutSection = () => (
 
 const StrategySection = () => (
   <section className="p-8 max-w-6xl mx-auto bg-gray-100 text-right">
-    <h2 className="text-main-color text-6xl font-black pb-2 gradient-text-2">אסטרטגיית המסחר שלנו</h2>
-    <h1 className="text-2xl font-black pb-2 text-main-color">
+    <h1 className="text-4xl lg:text-5xl font-black pb-6 gradient-text-2">אסטרטגיית המסחר שלנו</h1>
+    <h2 className="text-2xl font-black pb-2 text-main-color">
     הקדמה
-    </h1>
+    </h2>
     <p className="mb-4">
     אסטרטגיות המסחר שלנו מאפשרת להשיג תשואות גבוהות, בתנודתיות ובסיכון נמוכים ביחס להשקעות המקובלות. 
     </p>    
@@ -110,24 +110,24 @@ const StrategySection = () => (
 
 const WhySection = () => (
   <section className="p-8 max-w-6xl mx-auto bg-gray-100 text-right">
-    <h2 className="text-gray-700 text-6xl font-black pb-2 gradient-text-2">למה להשקיע עם AlgoSol?</h2>    
+    <h2 className="text-4xl lg:text-5xl font-black pb-6 gradient-text-2">למה להשקיע עם AlgoSol?</h2>    
   </section>
 ); 
 
 const IconsSection = () => (
   <section className="p-8 max-w-6xl mx-auto text-center">
     <div className="flex justify-around">
-      <div className="text-center max-w-64">
+      <div className="text-center max-w-64 w-[33%] lg:w-auto">
         <TrendingUp fontSize="inherit" className="text-main-color mb-4"  style={{fontSize:'105px'}}/>
         <p className="text-lg font-bold">מודל שמתאים לשינויים בשוק</p>
         <p>המודל מגיב לשינויים בשוק בצורה טובה (דוגמת משבר הקורונה)</p>
       </div>
-      <div className="text-center max-w-64">
+      <div className="text-center max-w-64 w-[33%] lg:w-auto">
         <Assessment fontSize="inherit" className="text-main-color mb-4"  style={{fontSize:'105px'}}/>
         <p className="text-lg font-bold">ביצועים מוכחים</p>
         <p>מודל שמתאים לניהול סיכונים ועובדת על השוק ב-5 שנים האחרונות</p>
       </div>
-      <div className="text-center max-w-64">
+      <div className="text-center max-w-64 w-[33%] lg:w-auto">
         <FavoriteBorder fontSize="inherit" className="text-main-color mb-4" style={{fontSize:'105px'}}/>
         <p className="text-lg font-bold">ניהול תיק אישי</p>
         <p>המודל מותאם אישית לצרכי הלקוח</p>
@@ -179,7 +179,7 @@ const SecondImage = () => (
 const InvestmentOptions = () => (
   <section className="p-8 max-w-6xl mx-auto bg-gray-100 text-right"  style={{direction: 'rtl'}}>
     <h2 className="text-2xl font-black mb-4 text-main-color">אנא בחר אחת מהאפשרויות הבאות:</h2>
-    <div className="space-y-2" style={{direction: 'ltr'}}>
+    <div className="space-y-2 pb-6" style={{direction: 'ltr'}}>
       <label className="flex flex-row-reverse items-center">
         <input type="checkbox" className="ml-2" />
         <span className="mr-2">השקעה בדמי ניהול מופחתים וללא דמי הצלחה לתקופה מוגבלת</span>

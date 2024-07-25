@@ -2,11 +2,11 @@ import React from 'react';
 import ContactImage from '../assets/bk8.png'; // Assuming you saved the image as 1.png
 
 const ContactPage = () => (
-    <section className="text-right flex flex-col md:flex-row items-center justify-between mr-[10%]">
-      <form className="w-full w-1/2 p-8 bg-white text-right" style={{ direction: 'ltr',height:'65vh',width:'50%',backgroundColor:'white' }}>
-        <h1 className="text-2xl font-black pb-6 gradient-text-2 w-[340px] text-center" style={{fontSize:'2em'}}>נשמח לעמוד לשירותכם בכל שאלה.
+    <section className="text-right flex flex-col md:flex-row items-center justify-between mr-0 lg:mr-[10%]">
+      <form className="w-1/2 p-8 bg-white text-right h-[65vh] bg-white ltr">
+        <h1 className="text-2xl font-black pb-6 gradient-text-2 w-[340px] text-center">נשמח לעמוד לשירותכם בכל שאלה.
 השאירו פרטים ונחזור אליכם</h1>
-        <div className="mb-4" style={{width:'288px'}}>
+        <div className="mb-8 w-[288px]">
           <input type="text" placeholder="שם" className="flex-1 p-2 border rounded text-right" />
           <input type="tel" placeholder="טלפון" className="flex-1 p-2 border rounded text-right" />
           <input type="email" placeholder="אימייל" className="flex-1 p-2 border rounded text-right" />
@@ -16,8 +16,8 @@ const ContactPage = () => (
           <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
         </div>
       </form>
-      <div className="w-1/2 h-auto md:mb-0" style={{height:'65vh',width:'50%' }}>
-        <img src={ContactImage} alt="Contact" className=""  style={{height:'65vh',width:'100%',objectFit:'cover' }}/>
+      <div className="hidden lg:block w-[50vw] h-[65vh] md:mb-0">
+        <img src={ContactImage} alt="Contact" className="object-cover w-[65vw] h-[100%]"/>
       </div>
     </section>
 );

@@ -6,7 +6,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 const Footer = () => (
     <footer className="bg-[#1f5972] text-white text-sm" style={{background:`url(${FooterBk})`, backgroundSize:"cover"}}>
       <div className="max-w-6xl mx-auto px-8 py-6">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex-col sm:flex-row flex justify-between items-center mb-4">
           <div className="flex items-center">
             <PhoneIcon className="w-6 h-6 ml-2" />
             <span className="font-semibold text-xl">054-5746165</span>

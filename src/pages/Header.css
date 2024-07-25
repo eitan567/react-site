@@ -9,18 +9,34 @@
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
   
-    header nav ul {
-      flex-direction: column;
+    header nav ul {      
       align-items: flex-start;
+      flex-direction: column-reverse !important;
     }
   
     header nav ul li {
       margin-bottom: 0.5rem;
+    }
+
+    .mobile-menu-button{
+      width: 43px;
+      height: 43px;
+      background: none !important;
+      color: black;
+      font-size: x-large;
     }
   }
   
   @media (min-width: 640px) {
     header nav {
       display: block !important;
+    }
+
+    .mobile-menu-button{
+      width: 43px;
+      height: 43px;
+      background: none !important;
+      color: black;
+      font-size: x-large;
     }
   }
