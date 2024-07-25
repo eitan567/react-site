@@ -112,12 +112,12 @@ const StrategySection = () => (
 
 const WhySection = () => (
   <section className="p-6 pt-2 pb-2 max-w-6xl mx-auto bg-gray-100 text-right">
-    <h2 className="text-4xl lg:text-5xl font-black pb-0 gradient-text-2">למה להשקיע עם AlgoSol?</h2>    
+    <h2 className="text-4xl lg:text-5xl font-black pb-0 gradient-text-2 lg:h-[1.1em]">למה להשקיע עם AlgoSol?</h2>    
   </section>
 ); 
 
 const IconsSection = () => (
-  <section className="p-8 max-w-6xl mx-auto text-center">
+  <section className="p-6 pb-10 max-w-6xl mx-auto text-center">
     <div className="flex justify-around">
       <div className="text-center max-w-64 w-[33%] lg:w-auto">
         <TrendingUp fontSize="inherit" className="text-main-color mb-4"  style={{fontSize:'105px'}}/>
@@ -174,7 +174,7 @@ const WhyForm = () => {
   }
 
   return (
-    <form ref={form} onSubmit={sendEmail} className='my-10' >
+    <form ref={form} onSubmit={sendEmail} className='mb-10' >
       <h2 className="text-2xl font-bold mb-4 text-center">על מנת לצפות בתשואות הקרן דרך האתר, יש להיות מוגדר כמשקיע כשיר</h2>
       <div className="flex flex-row-reverse space-x-reverse space-x-4">
         <input type='hidden' name='to_me' value='Solomon'/>
