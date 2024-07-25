@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageTop from '../assets/bk2.png';
+import ImageTop from '../assets/bkandlogo3.png';
 import ImageBottom from '../assets/bk9.png';
 
 const AboutPage = () => (
@@ -21,9 +21,9 @@ const AboutPage = () => (
         <p className="mb-4">
           השאת תשואה גבוהה, בסיכונים נמוכים ביחס לתשואה המקובלת. הקרן משקיעה בניירות ערך סחירים בארה"ב לטווח בינוני-ארוך.
         </p>
-        <div className="mt-8 mb-6">
+        {/* <div className="mt-8 mb-6">
           <img src={ImageBottom} alt="Fund performance chart" className="w-full h-auto" />
-        </div>
+        </div> */}
         <h2 className="text-2xl font-black mb-4 text-main-color">הצוות</h2>
         <p className="mb-4">
           יוצאי מקצועיות ומנהלי תיקים בארץ ובחו"ל של אגפים של המוסדים הגדולים בישראל שרצו להקים קרן גידור עצמאית לטובת הלקוחות ובני המשפחה.

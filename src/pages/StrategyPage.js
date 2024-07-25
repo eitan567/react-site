@@ -1,5 +1,5 @@
 import React from 'react';
-import StrategyImage from '../assets/bk7.png'; // Assuming you saved the image as 3.png
+import StrategyImage from '../assets/bk4.png'; // Assuming you saved the image as 3.png
 
 const StrategyPage = () => (
     <div>

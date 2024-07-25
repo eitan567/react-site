@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 // import HomeTopImg from '../assets/bk5.png'
-import HomeMiddleImg from '../assets/bk2.png'
-import HomeBottomImg from '../assets/bk7.png'
+import HomeMiddleImg from '../assets/bk5.png'
+import HomeBottomImg from '../assets/bk2.png'
 import Back1 from '../assets/bkandlogo5.png'
 import AboutSVG from '../assets/aboutTheStock.svg';
 import VisionSVG from '../assets/vision.svg';
@@ -275,7 +275,7 @@ const InvestmentOptions = () => (
 
 const ThirdImage = () => (
   <div>
-    <img src={HomeBottomImg} alt="Fund performance chart" className="flat-image" />
+    <img src={HomeBottomImg} alt="Fund performance chart" className="flat-image h-full" />
   </div>
 );
 
@@ -293,7 +293,7 @@ const Home = () => (
     {/* <InvestmentForm /> */}
     <SecondImage />
     <StrategySection />
-    <ThirdImage />
+    {/* <ThirdImage /> */}
     <WhySection />
     <IconsSection />
     <WhyForm /> 
