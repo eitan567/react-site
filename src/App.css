@@ -139,7 +139,8 @@ form button {
 }
 
 form button:hover {
-  background: #555;
+  background: rgb(108,13,214) !important;
+  background: linear-gradient(222deg, #c32978 30%, #206a92 100%) !important;
 }
 
 .investment-options {

@@ -199,7 +199,7 @@ const WhyForm = () => {
         </label>
       </div>
       <div className='flex justify-center w-full'>
-        <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור והעברה לתשואות</button>
+        <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl hover:button-hover">אישור והעברה לתשואות</button>
       </div>
     </form>
   );
