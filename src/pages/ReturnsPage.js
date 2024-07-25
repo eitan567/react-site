@@ -1,9 +1,18 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import ReturnsImage from '../assets/bk6.png'; // Assuming you saved the image as 4.png
 import StockChart from '../components/advanced-stock-chart';
 
 
-const ReturnsPage = () => (
+const ReturnsPage = () => {
+  
+  useEffect(() => {  
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });  
+  }, []);
+
+  return(
   <div>
     <div className="">
       <img src={ReturnsImage} alt="Fund performance chart" className="w-full h-auto" />
@@ -18,5 +27,6 @@ const ReturnsPage = () => (
     </section>
   </div>
 );
+};
 
 export default ReturnsPage;

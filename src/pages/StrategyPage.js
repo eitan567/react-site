@@ -1,7 +1,16 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import StrategyImage from '../assets/bk4.png'; // Assuming you saved the image as 3.png
 
-const StrategyPage = () => (
+const StrategyPage = () => {
+  
+  useEffect(() => {  
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });  
+  }, []);
+
+  return(
     <div>
       <div className="">
         <img src={StrategyImage} alt="AI" className="w-full h-auto" />
@@ -26,5 +35,6 @@ const StrategyPage = () => (
       </section>
     </div>
 );
+};
 
 export default StrategyPage;

@@ -1,8 +1,17 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import ImageTop from '../assets/bkandlogo3.png';
-import ImageBottom from '../assets/bk9.png';
+// import ImageBottom from '../assets/bk9.png';
 
-const AboutPage = () => (
+const AboutPage = () => {
+
+  useEffect(() => {  
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });  
+  }, []);
+
+  return(
     <div>
       <div className="relative h-full">
         <img src={ImageTop} alt="AI" className="w-full h-auto" />
@@ -32,5 +41,6 @@ const AboutPage = () => (
       </section>
     </div>
 );
+};
 
 export default AboutPage;

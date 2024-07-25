@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState ,useEffect} from 'react';
 // import HomeTopImg from '../assets/bk5.png'
 import HomeMiddleImg from '../assets/bk5.png'
-import HomeBottomImg from '../assets/bk2.png'
+// import HomeBottomImg from '../assets/bk2.png'
 import Back1 from '../assets/bkandlogo5.png'
 import AboutSVG from '../assets/aboutTheStock.svg';
 import VisionSVG from '../assets/vision.svg';
@@ -21,26 +21,36 @@ import emailjs from '@emailjs/browser';
 //   </div>
 // );
 
-const Hero = () => (
-  <section className="relative h-80 lg:h-auto">
-    <div className='hidden lg:block animated-svg-style' style={{backgroundImage: `url(${BackSvg})`}}></div>
-    <img src={Back1} alt="Stock market charts" className="w-full h-full object-cover" />  
-    {/* <div className='hidden lg:block'>
-        <svg className="waves" xmlns="http://www.w3.org/2000/svg" 
-        xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
-          <defs>
-            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-          </defs>
-          <g className="parallax">
-            <use href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-            <use href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-            <use href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-            <use href="#gentle-wave" x="48" y="7" fill="#fff" />
-          </g>
-        </svg>
-    </div>  */}
-  </section>
-);
+const Hero = () => {
+  
+  useEffect(() => {  
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });  
+  }, []);
+  
+  return(
+      <section className="relative h-80 lg:h-auto">
+        <div className='hidden lg:block animated-svg-style' style={{backgroundImage: `url(${BackSvg})`}}></div>
+        <img src={Back1} alt="Stock market charts" className="w-full h-full object-cover" />  
+        {/* <div className='hidden lg:block'>
+            <svg className="waves" xmlns="http://www.w3.org/2000/svg" 
+            xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
+              <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+              </defs>
+              <g className="parallax">
+                <use href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                <use href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                <use href="#gentle-wave" x="48" y="7" fill="#fff" />
+              </g>
+            </svg>
+        </div>  */}
+      </section>
+    );
+};
 
 const data = [
   {
@@ -117,8 +127,8 @@ const WhySection = () => (
 ); 
 
 const IconsSection = () => (
-  <section className="p-6 pb-10 max-w-6xl mx-auto text-center">
-    <div className="flex justify-around">
+  <section className="p-14 max-w-6xl mx-auto text-center">
+    <div className="flex justify-between">
       <div className="text-center max-w-64 w-[33%] lg:w-auto">
         <TrendingUp fontSize="inherit" className="text-main-color mb-4"  style={{fontSize:'105px'}}/>
         <p className="text-lg font-bold">מודל שמתאים לשינויים בשוק</p>
@@ -239,45 +249,45 @@ const SecondImage = () => (
   </div>
 );
 
-const InvestmentOptions = () => (
-  <section className="p-8 max-w-6xl mx-auto bg-gray-100 text-right"  style={{direction: 'rtl'}}>
-    <h2 className="text-2xl font-black mb-4 text-main-color">אנא בחר אחת מהאפשרויות הבאות:</h2>
-    <div className="space-y-2 pb-6" style={{direction: 'ltr'}}>
-      <label className="flex flex-row-reverse items-center">
-        <input type="checkbox" className="ml-2" />
-        <span className="mr-2">השקעה בדמי ניהול מופחתים וללא דמי הצלחה לתקופה מוגבלת</span>
-      </label>
-      <label className="flex flex-row-reverse items-center">
-        <input type="checkbox" className="ml-2" />
-        <span className="mr-2">גובה ההשקעה בכל אחת מהאופציות האחרות, למעט ש״ח 1,214,317 או עבודה הנכונה לאחר לי שהוא המשפחתי
-        שאלף או משהוא עומד על ש״ח 1,821,475</span>
-      </label>
-      <label className="flex flex-row-reverse items-center">
-        <input type="checkbox" className="ml-2" />
-        <span className="mr-2">השקעה בדמי ניהול מופחתים וללא דמי הצלחה לתקופה מוגבלת בכל אחד מהאופציות האחרות עולה
-        על ש״ח 5,059,653 או משהוא שאלף או משהוא המשפחתי שהוא לאחר עבודה הנכונה לאחר לי על ש״ח 807,158</span>
-      </label>
-      <label className="flex flex-row-reverse items-center">
-        <input type="checkbox" className="ml-2" />
-        <span className="mr-2">תנאי המומלץ כיום, בעל עמלה גבוהה של 50-80 מיליון ש״ח בעמלות מלאה של משקיעים כשירים</span>
-      </label>
-      <label className="flex flex-row-reverse items-center">
-        <input type="checkbox" className="ml-2" />
-        <span className="mr-2">אני משקיע מוסדי</span>
-      </label>
-    </div>
-    <div className='flex justify-center w-full'>
-      <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור והעבר לתשואות</button>
-    </div>
-    {/* <button className="mt-4 text-bgmain-color text-white px-4 py-2 rounded w-full">אישור והעבר לתשואות</button> */}
-  </section>
-);
+// const InvestmentOptions = () => (
+//   <section className="p-8 max-w-6xl mx-auto bg-gray-100 text-right"  style={{direction: 'rtl'}}>
+//     <h2 className="text-2xl font-black mb-4 text-main-color">אנא בחר אחת מהאפשרויות הבאות:</h2>
+//     <div className="space-y-2 pb-6" style={{direction: 'ltr'}}>
+//       <label className="flex flex-row-reverse items-center">
+//         <input type="checkbox" className="ml-2" />
+//         <span className="mr-2">השקעה בדמי ניהול מופחתים וללא דמי הצלחה לתקופה מוגבלת</span>
+//       </label>
+//       <label className="flex flex-row-reverse items-center">
+//         <input type="checkbox" className="ml-2" />
+//         <span className="mr-2">גובה ההשקעה בכל אחת מהאופציות האחרות, למעט ש״ח 1,214,317 או עבודה הנכונה לאחר לי שהוא המשפחתי
+//         שאלף או משהוא עומד על ש״ח 1,821,475</span>
+//       </label>
+//       <label className="flex flex-row-reverse items-center">
+//         <input type="checkbox" className="ml-2" />
+//         <span className="mr-2">השקעה בדמי ניהול מופחתים וללא דמי הצלחה לתקופה מוגבלת בכל אחד מהאופציות האחרות עולה
+//         על ש״ח 5,059,653 או משהוא שאלף או משהוא המשפחתי שהוא לאחר עבודה הנכונה לאחר לי על ש״ח 807,158</span>
+//       </label>
+//       <label className="flex flex-row-reverse items-center">
+//         <input type="checkbox" className="ml-2" />
+//         <span className="mr-2">תנאי המומלץ כיום, בעל עמלה גבוהה של 50-80 מיליון ש״ח בעמלות מלאה של משקיעים כשירים</span>
+//       </label>
+//       <label className="flex flex-row-reverse items-center">
+//         <input type="checkbox" className="ml-2" />
+//         <span className="mr-2">אני משקיע מוסדי</span>
+//       </label>
+//     </div>
+//     <div className='flex justify-center w-full'>
+//       <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור והעבר לתשואות</button>
+//     </div>
+//     {/* <button className="mt-4 text-bgmain-color text-white px-4 py-2 rounded w-full">אישור והעבר לתשואות</button> */}
+//   </section>
+// );
 
-const ThirdImage = () => (
-  <div>
-    <img src={HomeBottomImg} alt="Fund performance chart" className="flat-image h-full" />
-  </div>
-);
+// const ThirdImage = () => (
+//   <div>
+//     <img src={HomeBottomImg} alt="Fund performance chart" className="flat-image h-full" />
+//   </div>
+// );
 
 // const QualifiedInvestorNote = () => (
 //   <div className="p-8 max-w-6xl mx-auto text-center">
