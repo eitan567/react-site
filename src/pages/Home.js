@@ -111,7 +111,7 @@ const StrategySection = () => (
 );
 
 const WhySection = () => (
-  <section className="p-8 max-w-6xl mx-auto bg-gray-100 text-right">
+  <section className="p-6 pt-2 max-w-6xl mx-auto bg-gray-100 text-right">
     <h2 className="text-4xl lg:text-5xl font-black pb-6 gradient-text-2">למה להשקיע עם AlgoSol?</h2>    
   </section>
 ); 
@@ -189,7 +189,7 @@ const WhyForm = () => {
         </label>
       </div>
       <div className='flex justify-center w-full'>
-        <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
+        <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור והעברה לתשואות</button>
       </div>
     </form>
   );
