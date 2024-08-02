@@ -10,6 +10,13 @@ export const UserProvider = ({ children }) => {
   const consentCookieName = 'algoVibe_cookiesAccepted';
 
   useEffect(() => {
+
+    //for test only
+    // Clear all cookies for the current site
+    // Object.keys(Cookies.get()).forEach(cookieName => {
+    //   Cookies.remove(cookieName);
+    // });
+
     const checkCookieConsent = () => {
       const cookiesAcceptedStatus = Cookies.get(consentCookieName);
       if (cookiesAcceptedStatus === 'true') {
