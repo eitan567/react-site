@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoAlgo from '../assets/logoAlgo.png';
+import LogoAlgo from '../assets/logoAlgoVibe.png';
 import './Header.css';
 
 
