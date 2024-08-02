@@ -348,7 +348,7 @@ const relatedTags = [
 
 
 const SearchText = () => (
-  <div className="p-8 max-w-6xl mx-auto text-center flex flex-row flex-wrap justify-center hidden">
+  <div className="p-8 max-w-6xl mx-auto text-center flex flex-row flex-wrap justify-center">
     {relatedTags.map((item, index) => (
       <span key={index} className="text-md font-bold bk-gray-200 ml-1 mr-1 rounded-lg px-2 py-0 bg-gray-300 text-main-color mt-2 hover:scale-110 transition-transform duration-300">
         <a key={index}
