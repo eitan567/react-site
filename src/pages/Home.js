@@ -122,7 +122,7 @@ const StrategySection = () => (
 
 const WhySection = () => (
   <section className="p-6 pt-2 pb-2 max-w-6xl mx-auto text-right">
-    <h2 className="text-4xl lg:text-5xl font-black pb-0 gradient-text-2 lg:h-[1.1em]">למה להשקיע עם AlgoVide?</h2>    
+    <h2 className="text-4xl lg:text-5xl font-black pb-0 gradient-text-2 lg:h-[1.1em]">למה להשקיע עם AlgoVibe?</h2>    
   </section>
 ); 
 
@@ -165,6 +165,7 @@ const WhyForm = () => {
         () => {
           console.log('SUCCESS!');
           setIsSubmitted(true);
+          setIsError(false);
           form.current.reset(); 
         },
         (error) => {
@@ -175,7 +176,6 @@ const WhyForm = () => {
   };
 
   if (isSubmitted) {
-    setIsError(false);
     return (
       <form className='my-10' style={{direction:'rtl'}}>
         <div className="text-center background-main-color px-4 round-lg">
@@ -232,6 +232,7 @@ const InvestmentForm = () =>  {
         () => {
           console.log('SUCCESS!');
           setIsSubmitted(true);
+          setIsError(false);
           form.current.reset(); 
         },
         (error) => {
@@ -242,7 +243,6 @@ const InvestmentForm = () =>  {
   };
 
   if (isSubmitted) {
-    setIsError(false);
     return (
       <form className='my-10' style={{direction:'rtl'}}>
         <div className="text-center background-main-color px-4 round-lg">
@@ -261,7 +261,7 @@ const InvestmentForm = () =>  {
         <p>אנו מתנצלים על התקלה, אנא צור עימנו קשר בטלפון או נסה מאוחר יותר.</p>
       </div>
     </form>) : (
-    <form className="mb-8"  ref={form} onSubmit={sendEmail}>
+    <form className="mb-8" ref={form} onSubmit={sendEmail}>
       <h2 className="text-2xl font-bold mb-4 text-center">מעוניינים לשמוע עוד? נשמח ליצור עמכם קשר</h2>
       <div className="flex flex-row-reverse space-x-reverse space-x-4 mb-4">
         <input type='hidden' name='to_me' value='Solomon'/>
@@ -348,7 +348,7 @@ const relatedTags = [
 
 
 const SearchText = () => (
-  <div className="p-8 max-w-6xl mx-auto text-center flex flex-row flex-wrap justify-center">
+  <div className="p-8 max-w-6xl mx-auto text-center flex flex-row flex-wrap justify-center hidden">
     {relatedTags.map((item, index) => (
       <span key={index} className="text-md font-bold bk-gray-200 ml-1 mr-1 rounded-lg px-2 py-0 bg-gray-300 text-main-color mt-2 hover:scale-110 transition-transform duration-300">
         <a key={index}
