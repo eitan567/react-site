@@ -23,7 +23,7 @@ const Header = () => {
             >
               {isMenuOpen ? '✕' : '☰'}
             </button>
-            <img src={LogoAlgo} alt="logo" className="w-28" />
+            <img src={LogoAlgo} alt="logo" className="w-32" />
           </div>
           <nav className={`${isMenuOpen ? 'block' : 'hidden'} pt-0 lg:block`}>            
             <ul className="flex flex-col sm:flex-row-reverse sm:items-center sm:space-x-8 space-x-reverse text-gray-600 font-black text-xl">
@@ -56,7 +56,7 @@ const Header = () => {
           </nav>
         </div>
       </div>
-      <img src={LogoAlgo} alt="logo" className="hidden lg:block absolute left-3 top-[12px] mw-20 sm:w-25 md:w-32" />
+      <img src={LogoAlgo} alt="logo" className="hidden lg:block absolute left-3 top-[12px] mw-25 sm:w-32 md:w-40" />
     </header>
   );
 };
