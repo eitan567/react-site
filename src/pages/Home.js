@@ -1,4 +1,5 @@
-import React, { useRef, useState ,useEffect} from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 // import HomeTopImg from '../assets/bk5.png'
 import HomeMiddleImg from '../assets/bk5.png'
 // import HomeBottomImg from '../assets/bk2.png'
@@ -11,6 +12,7 @@ import BackSvg from '../assets/backsvg.svg';
 import '../assets/wave.css'
 import { Assessment, FavoriteBorder, TrendingUp } from '@mui/icons-material';
 import emailjs from '@emailjs/browser';
+import { UserContext } from '../UserContext';
 
 // import backgroundSvg from '../assets/background.svg';
 
@@ -153,6 +155,8 @@ const WhyForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
   const [errors, setErrors] = useState({});
+  const { setFormSubmitted } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const newErrors = {};
@@ -199,7 +203,9 @@ const WhyForm = () => {
           console.log('SUCCESS!');
           setIsSubmitted(true);
           setIsError(false);
-          form.current.reset();
+          setFormSubmitted(true);
+          form.current.reset();          
+          navigate('/returns');          
         },
         (error) => {
           console.log('FAILED...', error.text);

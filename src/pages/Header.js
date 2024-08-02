@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoAlgo from '../assets/logoAlgoVibe3.png';
 import './Header.css';
-
+import { UserContext } from '../UserContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isFormSubmitted, cookiesAccepted } = useContext(UserContext);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const isReturnsEnabled = isFormSubmitted && cookiesAccepted;
 
   return (
     <header className="bg-white shadow-md">
@@ -26,8 +29,8 @@ const Header = () => {
             <img src={LogoAlgo} alt="logo" className="w-32" />
           </div>
           <nav className={`${isMenuOpen ? 'block' : 'hidden'} pt-0 lg:block`}>            
-            <ul className="flex flex-col sm:flex-row-reverse sm:items-center sm:space-x-8 space-x-reverse text-gray-600 font-black text-xl">
-              <li className="mb-2 sm:mb-0">
+           <ul className="flex flex-col sm:flex-row-reverse sm:items-center sm:space-x-8 space-x-reverse text-gray-600 font-black text-xl">
+             <li className="mb-2 sm:mb-0">
                 <NavLink to="/contact" onClick={toggleMenu} className={({ isActive }) => isActive ? "text-[#425d8d] mr-[15px] lg:m-0" : "text-gray-600 mr-[15px] lg:m-0"}>
                   צור קשר
                 </NavLink>
@@ -38,9 +41,19 @@ const Header = () => {
                 </NavLink>
               </li>
               <li className="mb-2 sm:mb-0">
-                <NavLink to="/returns" onClick={toggleMenu} className={({ isActive }) => isActive ? "text-[#425d8d] mr-[15px] lg:m-0" : "text-gray-600 mr-[15px] lg:m-0"}>
-                  תשואות
-                </NavLink>
+                {isReturnsEnabled ? (
+                  <NavLink 
+                    to="/returns" 
+                    onClick={toggleMenu} 
+                    className={({ isActive }) => 
+                      isActive ? "text-[#425d8d] mr-[15px] lg:m-0" : "text-gray-600 mr-[15px] lg:m-0"
+                    }
+                  >
+                    תשואות
+                  </NavLink>
+                ) : (
+                  <span className="text-gray-400 mr-[15px] lg:m-0 cursor-not-allowed">תשואות</span>
+                )}
               </li>
               <li className="mb-2 sm:mb-0">
                 <NavLink to="/strategy" onClick={toggleMenu} className={({ isActive }) => isActive ? "text-[#425d8d] mr-[15px] lg:m-0" : "text-gray-600 mr-[15px] lg:m-0"}>

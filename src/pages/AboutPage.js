@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import ImageTop from '../assets/laptopman.png';
+// import ImageTop from '../assets/laptopman.png';
 import ImageBottom from '../assets/magnifying.png';
 
 const AboutPage = () => {
