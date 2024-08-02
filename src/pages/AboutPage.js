@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
-import ImageTop from '../assets/bkandlogo32.png';
-// import ImageBottom from '../assets/bk9.png';
+import ImageTop from '../assets/laptopman.png';
+import ImageBottom from '../assets/magnifying.png';
 
 const AboutPage = () => {
 
@@ -12,9 +12,10 @@ const AboutPage = () => {
   }, []);
 
   return(
+    // <div className='flex flex-col items-center justify-center text-right lg:flex-row-reverse lg:items-start'>
     <div>
-      <div className="relative h-80 lg:h-auto">
-        <img src={ImageTop} alt="AI" className="w-full h-full object-cover" />
+      <div className="relative">
+        <img src={ImageBottom} alt="AI" className="w-auto lg:object-cover lg:object-[20%_35%] lg:w-full lg:h-[392px] lg:object-cover" />
       </div>
       <section className="p-8 max-w-6xl mx-auto text-right">
         <h1 className="text-4xl lg:text-5xl font-black pb-6 gradient-text-2">אודות הקרן</h1>

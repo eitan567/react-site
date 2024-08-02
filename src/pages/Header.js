@@ -44,7 +44,7 @@ const Header = () => {
               </li>
               <li className="mb-2 sm:mb-0">
                 <NavLink to="/strategy" onClick={toggleMenu} className={({ isActive }) => isActive ? "text-[#425d8d] mr-[15px] lg:m-0" : "text-gray-600 mr-[15px] lg:m-0"}>
-                  אסטרטגיות
+                מסחר אלגוריתמי ואסטרטגיות
                 </NavLink>
               </li>
               <li className="mb-2 sm:mb-0">

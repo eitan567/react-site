@@ -5,7 +5,7 @@ import HomeMiddleImg from '../assets/bk5.png'
 import Back1 from '../assets/bkandlogo5.png'
 import AboutSVG from '../assets/aboutTheStock.svg';
 import VisionSVG from '../assets/vision.svg';
-import TeamSVG from '../assets/team.svg';
+// import TeamSVG from '../assets/team.svg';
 import TargetSVG from '../assets/target.svg';
 import BackSvg from '../assets/backsvg.svg';
 import '../assets/wave.css'
@@ -68,11 +68,11 @@ const data = [
     title: 'אסטרטגיות המסחר שלנו',
     description: 'אסטרטגיות המסחר שלנו מאפשרת להשיג תשואות גבוהות, בתנודתיות ובסיכון נמוכים ביחס להשקעות המקובלות.'
   },
-  {
-    svg: TeamSVG,
-    title: 'הצוות - יש להשלים נתונים אמיתיים',
-    description: 'יוצאי מקצועיות ומנהלי תיקים בארץ ובחו"ל של אגפים של המוסדים הגדולים בישראל שרצו להקים קרן גידור עצמאית לטובת הלקוחות ובני המשפחה. מנהלי הקרן משקיעים את כספם האישי בקרן, מתוך אמונה במודל ובאסטרטגיית ההשקעה.'
-  }
+  // {
+  //   svg: TeamSVG,
+  //   title: 'הצוות - יש להשלים נתונים אמיתיים',
+  //   description: 'יוצאי מקצועיות ומנהלי תיקים בארץ ובחו"ל של אגפים של המוסדים הגדולים בישראל שרצו להקים קרן גידור עצמאית לטובת הלקוחות ובני המשפחה. מנהלי הקרן משקיעים את כספם האישי בקרן, מתוך אמונה במודל ובאסטרטגיית ההשקעה.'
+  // }
 ];
 
 const AboutSection = () => (
@@ -122,7 +122,7 @@ const StrategySection = () => (
 
 const WhySection = () => (
   <section className="p-6 pt-2 pb-2 max-w-6xl mx-auto text-right">
-    <h2 className="text-4xl lg:text-5xl font-black pb-0 gradient-text-2 lg:h-[1.1em]">למה להשקיע עם AlgoSol?</h2>    
+    <h2 className="text-4xl lg:text-5xl font-black pb-0 gradient-text-2 lg:h-[1.1em]">למה להשקיע עם AlgoVide?</h2>    
   </section>
 ); 
 
@@ -151,7 +151,8 @@ const IconsSection = () => (
 const WhyForm = () => {
 
   const form = useRef();
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);  
+  const [isError, setIsError] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -168,11 +169,13 @@ const WhyForm = () => {
         },
         (error) => {
           console.log('FAILED...', error.text);
+          setIsError(true);
         },
       );
   };
 
   if (isSubmitted) {
+    setIsError(false);
     return (
       <form className='my-10' style={{direction:'rtl'}}>
         <div className="text-center background-main-color px-4 round-lg">
@@ -184,6 +187,13 @@ const WhyForm = () => {
   }
 
   return (
+    isError ? (
+    <form className='my-10' style={{direction:'rtl'}}>
+      <div className="text-center background-main-color px-4 round-lg">
+        <h2 className="text-2xl font-bold mb-4">תקלה בשליחת המייל !</h2>
+        <p>אנו מתנצלים על התקלה, אנא צור עימנו קשר בטלפון או נסה מאוחר יותר.</p>
+      </div>
+    </form>) : (
     <form ref={form} onSubmit={sendEmail} className='mb-10' >
       <h2 className="text-2xl font-bold mb-4 text-center">על מנת לצפות בתשואות הקרן דרך האתר, יש להיות מוגדר כמשקיע כשיר</h2>
       <div className="flex flex-row-reverse space-x-reverse space-x-4">
@@ -201,47 +211,71 @@ const WhyForm = () => {
       <div className='flex justify-center w-full'>
         <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl hover:button-hover">אישור והעברה לתשואות</button>
       </div>
-    </form>
+    </form>)
   );
 };
 
-// const InvestmentForm = () =>  {
+const InvestmentForm = () =>  {
+   
+  const [isError, setIsError] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const form = useRef();
 
-//   const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-//   const sendEmail = (e) => {
-//     e.preventDefault();
+    emailjs
+      .sendForm('service_solomonh', 'template_qualifiedlead', form.current, {
+        publicKey: 'z-eRN9erqlQNhoN1C',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          setIsSubmitted(true);
+          form.current.reset(); 
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+          setIsError(true);
+        },
+      );
+  };
 
-//     emailjs
-//       .sendForm('service_solomonh', 'template_qualifiedlead', form.current, {
-//         publicKey: 'z-eRN9erqlQNhoN1C',
-//       })
-//       .then(
-//         () => {
-//           console.log('SUCCESS!');
-//         },
-//         (error) => {
-//           console.log('FAILED...', error.text);
-//         },
-//       );
-//   };
+  if (isSubmitted) {
+    setIsError(false);
+    return (
+      <form className='my-10' style={{direction:'rtl'}}>
+        <div className="text-center background-main-color px-4 round-lg">
+          <h2 className="text-2xl font-bold mb-4">תודה רבה!</h2>
+          <p>הודעתך נשלחה בהצלחה. ניצור עמך קשר בהקדם.</p>
+        </div>
+      </form>
+    );
+  }
 
-//   return (
-//     <form className="mb-8"  ref={form} onSubmit={sendEmail}>
-//       <h2 className="text-2xl font-bold mb-4 text-center">מעוניינים לשמוע עוד? נשמח ליצור עמכם קשר</h2>
-//       <div className="flex flex-row-reverse space-x-reverse space-x-4 mb-4">
-//         <input type='hidden' name='to_me' value='Solomon'/>
-//         <input type="hidden" name="lead_agree" value='not recieved fron the lead yet'/>
-//         <input type="text" placeholder="שם" name="lead_name" className="flex-1 p-2 border rounded text-right" />
-//         <input type="tel" placeholder="טלפון" name="lead_phone" className="flex-1 p-2 border rounded text-right" />
-//         <input type="email" placeholder="אימייל" name="lead_email" className="flex-1 p-2 border rounded text-right" />
-//       </div>
-//       <div className='flex justify-center w-full'>
-//         <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
-//       </div>
-//     </form>
-//   );
-// };
+  return (
+    isError ? (
+    <form className='my-10' style={{direction:'rtl'}}>
+      <div className="text-center background-main-color px-4 round-lg">
+        <h2 className="text-2xl font-bold mb-4">תקלה בשליחת המייל !</h2>
+        <p>אנו מתנצלים על התקלה, אנא צור עימנו קשר בטלפון או נסה מאוחר יותר.</p>
+      </div>
+    </form>) : (
+    <form className="mb-8"  ref={form} onSubmit={sendEmail}>
+      <h2 className="text-2xl font-bold mb-4 text-center">מעוניינים לשמוע עוד? נשמח ליצור עמכם קשר</h2>
+      <div className="flex flex-row-reverse space-x-reverse space-x-4 mb-4">
+        <input type='hidden' name='to_me' value='Solomon'/>
+        <input type="hidden" name="lead_agree" value='not recieved fron the lead yet'/>
+        <input type="text" placeholder="שם" name="lead_name" className="flex-1 p-2 border rounded text-right" />
+        <input type="tel" placeholder="טלפון" name="lead_phone" className="flex-1 p-2 border rounded text-right" />
+        <input type="email" placeholder="אימייל" name="lead_email" className="flex-1 p-2 border rounded text-right" />
+      </div>
+      <div className='flex justify-center w-full'>
+        <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
+      </div>
+    </form>)
+  );
+};
 
 const SecondImage = () => (
   <div className="relative h-96">
@@ -295,23 +329,55 @@ const SecondImage = () => (
 //   </div>
 // );
 
+const relatedTags = [
+  { title: " אלגו טריידינג " },
+  { title: " קרן גידור " },
+  { title: " מסחר אלקטרוני " },
+  { title: " אלגוריתמי " },
+  { title: " שוק ההון " },
+  { title: " רובוט מסחר" },
+  { title: " תשואות גבוהות " },
+  { title: " בוט אלגו " },
+  { title: " מרוויח השקעות " },
+  { title: " ניירות ערך " },
+  { title: " שוק אמריקאי " },
+  { title: " חוזים עתידיים" },
+  { title: " ETF" },
+  { title: " תעודת סל" }
+];
+
+
+const SearchText = () => (
+  <div className="p-8 max-w-6xl mx-auto text-center flex flex-row flex-wrap justify-center">
+    {relatedTags.map((item, index) => (
+      <span key={index} className="text-md font-bold bk-gray-200 ml-1 mr-1 rounded-lg px-2 py-0 bg-gray-300 text-main-color mt-2 hover:scale-110 transition-transform duration-300">
+        <a key={index}
+          href={`https://www.google.com/search?q=${encodeURIComponent(item.title)}`}
+          target="_blank"
+          rel="noopener noreferrer">{item.title}</a>
+      </span>    
+    ))}
+  </div>
+);
+
 
 const Home = () => (
   <div className="font-assistant text-gray-800" dir="rtl">   
     <Hero />
-    <WhySection />
-    <IconsSection />
     <AboutSection />
-    <WhyForm />
-    {/* <InvestmentForm /> */}
+    <InvestmentForm />
     <SecondImage />
     <StrategySection />
+    <WhySection />
+    <IconsSection />
+    <WhyForm />
+    <SearchText/>
     {/* <ThirdImage /> */}
-    {/* <WhySection />
-    <IconsSection /> */}
-    <WhyForm /> 
+    {/* <WhySection /> */}
+    {/* <IconsSection /> */}
+    {/* <WhyForm />  */}
     {/* <InvestmentOptions /> */}
-    {/* <QualifiedInvestorNote />     */}
+    {/* <QualifiedInvestorNote /> */}
     {/* <Alert>
       <p className="text-gray-600 text-sm">
         השקעות בשוק ההון כרוכות בסיכון. האמור לעיל אינו מהווה המלצה להשקעה או ייעוץ השקעות המותאם לצרכיו האישיים והמיוחדים של כל אדם. אין לראות באמור לעיל משום הבטחת תשואה כלשהי או רווח בעתיד. אלמוגו קפיטל בע"מ הינה חברה לניהול תיקים בעלת רישיון מטעם רשות ני"ע. ט.ל.ח.
