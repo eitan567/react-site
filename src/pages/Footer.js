@@ -1,4 +1,4 @@
-import PhoneIcon from '@mui/icons-material/Phone';
+// import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import FooterBk from '../assets/footerbk2.png'
 // import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -7,10 +7,10 @@ const Footer = () => (
     <footer className="bg-[#1f5972] text-white text-sm" style={{background:`url(${FooterBk})`, backgroundSize:"cover"}}>
       <div className="max-w-6xl mx-auto px-8 py-6">
         <div className="flex-col sm:flex-row flex justify-between items-center mb-4">
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <PhoneIcon className="w-6 h-6 ml-2" />
             <span className="font-semibold text-xl">054-1234567</span>
-          </div>
+          </div> */}
           <div className="flex items-center">
             <EmailIcon className="w-6 h-6 ml-2" />
             <span className="font-semibold text-xl">office@algovibe.com</span>
@@ -25,10 +25,10 @@ const Footer = () => (
         </p>
         <div className="flex justify-between items-center" style={{direction: 'rtl'}}>
           <span>© 2022 כל הזכויות שמורות AlgoVibe</span>
-          <div>
+          {/* <div>
             <a href="http://google.com" className="ml-4">הצהרת נגישות</a>
             <a href="http://google.com">מדיניות פרטיות</a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

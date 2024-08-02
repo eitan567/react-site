@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoAlgo from '../assets/logoAlgoVibe2.png';
+import LogoAlgo from '../assets/logoAlgoVibe3.png';
 import './Header.css';
 
 
@@ -56,7 +56,7 @@ const Header = () => {
           </nav>
         </div>
       </div>
-      <img src={LogoAlgo} alt="logo" className="hidden lg:block absolute left-3 top-[9px] mw-25 sm:w-32 md:w-40" />
+      <img src={LogoAlgo} alt="logo" className="hidden lg:block absolute left-3 top-[9px] w-25 md:w-24 lg:w-32" />
     </header>
   );
 };
