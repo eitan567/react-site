@@ -149,13 +149,46 @@ const IconsSection = () => (
 );
 
 const WhyForm = () => {
-
   const form = useRef();
-  const [isSubmitted, setIsSubmitted] = useState(false);  
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    const newErrors = {};
+    const formData = new FormData(form.current);
+
+    if (!formData.get('lead_name').trim()) {
+      newErrors.name = 'שם הוא שדה חובה';
+    }
+
+    const phoneRegex = /^(\d{2,3}-?\d{7}|\d{9,10})$/;
+    if (!formData.get('lead_phone').trim()) {
+      newErrors.phone = 'טלפון הוא שדה חובה';
+    } else if (!phoneRegex.test(formData.get('lead_phone'))) {
+      newErrors.phone = 'מספר טלפון לא תקין';
+    }
+
+    if (!formData.get('lead_email').trim()) {
+      newErrors.email = 'אימייל הוא שדה חובה';
+    } else if (!/\S+@\S+\.\S+/.test(formData.get('lead_email'))) {
+      newErrors.email = 'כתובת אימייל לא תקינה';
+    }
+
+    if (!formData.get('lead_agree')) {
+      newErrors.agree = 'יש לאשר את ההצהרה';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
 
     emailjs
       .sendForm('service_solomonh', 'template_qualifiedlead', form.current, {
@@ -166,7 +199,7 @@ const WhyForm = () => {
           console.log('SUCCESS!');
           setIsSubmitted(true);
           setIsError(false);
-          form.current.reset(); 
+          form.current.reset();
         },
         (error) => {
           console.log('FAILED...', error.text);
@@ -186,43 +219,86 @@ const WhyForm = () => {
     );
   }
 
+  if (isError) {
+    return (
+      <form className='my-10' style={{direction:'rtl'}}>
+        <div className="text-center background-main-color px-4 round-lg">
+          <h2 className="text-2xl font-bold mb-4">תקלה בשליחת המייל !</h2>
+          <p>אנו מתנצלים על התקלה, אנא צור עימנו קשר בטלפון או נסה מאוחר יותר.</p>
+        </div>
+      </form>
+    );
+  }
+
   return (
-    isError ? (
-    <form className='my-10' style={{direction:'rtl'}}>
-      <div className="text-center background-main-color px-4 round-lg">
-        <h2 className="text-2xl font-bold mb-4">תקלה בשליחת המייל !</h2>
-        <p>אנו מתנצלים על התקלה, אנא צור עימנו קשר בטלפון או נסה מאוחר יותר.</p>
-      </div>
-    </form>) : (
-    <form ref={form} onSubmit={sendEmail} className='mb-10' >
+    <form ref={form} onSubmit={sendEmail} className='mb-0'>
       <h2 className="text-2xl font-bold mb-4 text-center">על מנת לצפות בתשואות הקרן דרך האתר, יש להיות מוגדר כמשקיע כשיר</h2>
       <div className="flex flex-row-reverse space-x-reverse space-x-4">
         <input type='hidden' name='to_me' value='Solomon'/>
-        <input type="text" placeholder="שם" name="lead_name" className="flex-1 p-2 border rounded text-right" />
-        <input type="tel" placeholder="טלפון" name="lead_phone" className="flex-1 p-2 border rounded text-right" />
-        <input type="email" placeholder="אימייל" name="lead_email" className="flex-1 p-2 border rounded text-right" />
+        <div className="flex-1">
+          <input type="text" placeholder="שם" name="lead_name" className="w-full p-2 mb-0 border rounded text-right" />
+          {errors.name && <p className="text-red-500 text-sm mt-0 text-right">{errors.name}</p>}
+        </div>
+        <div className="flex-1">
+          <input type="tel" placeholder="טלפון" name="lead_phone" className="w-full p-2 mb-0 border rounded text-right" />
+          {errors.phone && <p className="text-red-500 text-sm mt-0 text-right">{errors.phone}</p>}
+        </div>
+        <div className="flex-1">
+          <input type="email" placeholder="אימייל" name="lead_email" className="w-full p-2 mb-0 border rounded text-right" />
+          {errors.email && <p className="text-red-500 text-sm mt-0 text-right">{errors.email}</p>}
+        </div>
       </div>
-      <div className="space-y-2" style={{direction: 'ltr'}}>
-        <label className="flex flex-row-reverse mb-4">
+      <div className="space-y-2 mt-2" style={{direction: 'ltr'}}>
+        <label className="flex flex-row-reverse mt-2">
           <input type="checkbox" style={{margin: "6px",width:"15px",marginRight:"0px"}} name="lead_agree" />
-          <span className="mr-2">אני מצהיר שאני משקיע מוסדי או כשיר</span>
+          <span className="mr-2 mt-1">אני מצהיר שאני משקיע מוסדי או כשיר</span>
         </label>
+        {errors.agree && <p className="text-red-500 text-sm text-center mt-0">{errors.agree}</p>}
       </div>
-      <div className='flex justify-center w-full'>
+      <div className='flex justify-center w-full mt-2'>
         <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl hover:button-hover">אישור והעברה לתשואות</button>
       </div>
-    </form>)
+    </form>
   );
 };
 
-const InvestmentForm = () =>  {
-   
+const InvestmentForm = () => {
   const [isError, setIsError] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
   const form = useRef();
+
+  const validateForm = () => {
+    const newErrors = {};
+    const formData = new FormData(form.current);
+
+    if (!formData.get('lead_name').trim()) {
+      newErrors.name = 'שם הוא שדה חובה';
+    }
+
+    const phoneRegex = /^(\d{2,3}-?\d{7}|\d{9,10})$/;
+    if (!formData.get('lead_phone').trim()) {
+      newErrors.phone = 'טלפון הוא שדה חובה';
+    } else if (!phoneRegex.test(formData.get('lead_phone'))) {
+      newErrors.phone = 'מספר טלפון לא תקין';
+    }
+
+    if (!formData.get('lead_email').trim()) {
+      newErrors.email = 'אימייל הוא שדה חובה';
+    } else if (!/\S+@\S+\.\S+/.test(formData.get('lead_email'))) {
+      newErrors.email = 'כתובת אימייל לא תקינה';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
 
     emailjs
       .sendForm('service_solomonh', 'template_qualifiedlead', form.current, {
@@ -233,7 +309,7 @@ const InvestmentForm = () =>  {
           console.log('SUCCESS!');
           setIsSubmitted(true);
           setIsError(false);
-          form.current.reset(); 
+          form.current.reset();
         },
         (error) => {
           console.log('FAILED...', error.text);
@@ -253,27 +329,40 @@ const InvestmentForm = () =>  {
     );
   }
 
+  if (isError) {
+    return (
+      <form className='my-10' style={{direction:'rtl'}}>
+        <div className="text-center background-main-color px-4 round-lg">
+          <h2 className="text-2xl font-bold mb-4">תקלה בשליחת המייל !</h2>
+          <p>אנו מתנצלים על התקלה, אנא צור עימנו קשר בטלפון או נסה מאוחר יותר.</p>
+        </div>
+      </form>
+    );
+  }
+
   return (
-    isError ? (
-    <form className='my-10' style={{direction:'rtl'}}>
-      <div className="text-center background-main-color px-4 round-lg">
-        <h2 className="text-2xl font-bold mb-4">תקלה בשליחת המייל !</h2>
-        <p>אנו מתנצלים על התקלה, אנא צור עימנו קשר בטלפון או נסה מאוחר יותר.</p>
-      </div>
-    </form>) : (
     <form className="mb-8" ref={form} onSubmit={sendEmail}>
       <h2 className="text-2xl font-bold mb-4 text-center">מעוניינים לשמוע עוד? נשמח ליצור עמכם קשר</h2>
       <div className="flex flex-row-reverse space-x-reverse space-x-4 mb-4">
         <input type='hidden' name='to_me' value='Solomon'/>
         <input type="hidden" name="lead_agree" value='not recieved fron the lead yet'/>
-        <input type="text" placeholder="שם" name="lead_name" className="flex-1 p-2 border rounded text-right" />
-        <input type="tel" placeholder="טלפון" name="lead_phone" className="flex-1 p-2 border rounded text-right" />
-        <input type="email" placeholder="אימייל" name="lead_email" className="flex-1 p-2 border rounded text-right" />
+        <div className="flex-1">
+          <input type="text" placeholder="שם" name="lead_name" className="w-full p-2 mb-0 border rounded text-right" />
+          {errors.name && <p className="text-red-500 text-sm mt-0 text-right">{errors.name}</p>}
+        </div>
+        <div className="flex-1">
+          <input type="tel" placeholder="טלפון" name="lead_phone" className="w-full p-2 mb-0 border rounded text-right" />
+          {errors.phone && <p className="text-red-500 text-sm mt-0 text-right">{errors.phone}</p>}
+        </div>
+        <div className="flex-1">
+          <input type="email" placeholder="אימייל" name="lead_email" className="w-full p-2 mb-0 border rounded text-right" />
+          {errors.email && <p className="text-red-500 text-sm mt-0 text-right">{errors.email}</p>}
+        </div>
       </div>
       <div className='flex justify-center w-full'>
         <button type="submit" className="text-bgmain-color text-white px-8 py-2 rounded w-4xl">אישור</button>
       </div>
-    </form>)
+    </form>
   );
 };
 
